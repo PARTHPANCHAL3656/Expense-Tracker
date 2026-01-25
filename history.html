@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History</title>
+    <link href="./styles/history.css" rel="stylesheet" />
+    <link href="./styles/nav.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header-section">
+        <h1>History</h1>
+        <h3>All your expenses</h3>
+      </div>
+
+      <!-- Filter Dropdown -->
+      <div class="filter-section">
+        <select class="filter-select" id="category-filter">
+          <option value="all">All Categories</option>
+          <option value="groceries">Groceries</option>
+          <option value="utilities">Utilities</option>
+          <option value="housing">Housing</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="transportation">Transportation</option>
+        </select>
+      </div>
+
+      <!-- Expense List -->
+      <div class="expense-list" id="expense-list">
+        <!-- Expense Item 1 -->
+        <div class="expense-item">
+          <div class="expense-icon">🛒</div>
+          <div class="expense-details">
+            <h4 class="expense-title">Groceries</h4>
+            <p class="expense-date">13 Jan 2026</p>
+            <p class="expense-description">Weekly vegetables</p>
+            <p class="expense-payment">Cash</p>
+          </div>
+          <div class="expense-amount">₹450</div>
+          <div class="expense-actions">
+            <button class="action-btn edit">Edit</button>
+            <button class="action-btn delete">Delete</button>
+          </div>
+        </div>
+
+        <!-- Expense Item 2 -->
+        <div class="expense-item">
+          <div class="expense-icon">✨</div>
+          <div class="expense-details">
+            <h4 class="expense-title">Utilities</h4>
+            <p class="expense-date">14 Jan 2026</p>
+            <p class="expense-description">Electricity bill</p>
+            <p class="expense-payment">UPI</p>
+          </div>
+          <div class="expense-amount">₹1,200</div>
+          <div class="expense-actions">
+            <button class="action-btn edit">Edit</button>
+            <button class="action-btn delete">Delete</button>
+          </div>
+        </div>
+
+        <!-- Expense Item 3 -->
+        <div class="expense-item">
+          <div class="expense-icon">📺</div>
+          <div class="expense-details">
+            <h4 class="expense-title">Entertainment</h4>
+            <p class="expense-date">14 Jan 2026</p>
+            <p class="expense-description">Movie tickets</p>
+            <p class="expense-payment">Card</p>
+          </div>
+          <div class="expense-amount">₹300</div>
+          <div class="expense-actions">
+            <button class="action-btn edit">Edit</button>
+            <button class="action-btn delete">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="home.html" class="nav-item">
+        <span class="icon">➕</span>
+        <span class="label">Add</span>
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <span class="icon">📊</span>
+        <span class="label">Dashboard</span>
+      </a>
+      <a href="history.html" class="nav-item active">
+        <span class="icon">📋</span>
+        <span class="label">History</span>
+      </a>
+    </nav>
+
+    <script src="./scripts/history.js"></script>
+  </body>
+</html>

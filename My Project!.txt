@@ -1,0 +1,69 @@
+https://claude.ai/share/5e19616a-cd6a-4d60-af41-0e5c21ee0c34 (claude link for more info)
+
+🎓 FREE Learning Resources (YouTube & Beyond)
+
+1. Backend Basics & REST APIs
+
+Traversy Media - Node.js Crash Course - 1.5 hours, perfect intro
+Programming with Mosh - Node.js Tutorial - 1 hour comprehensive
+freeCodeCamp - Backend Development & APIs - Full course with certification
+Web Dev Simplified - REST API Tutorial - Quick 12 min intro
+
+2. Databases & SQLite
+
+Traversy Media - SQLite Crash Course - 45 min
+freeCodeCamp - SQL Tutorial - 4 hours full SQL
+Web Dev Simplified - Learn SQL - 1 hour basics
+Interactive: SQLBolt - Learn SQL by doing
+
+3. Database Design, Normalization & Queries
+
+Hussein Nasser - Database Engineering - Amazing playlist
+freeCodeCamp - Database Design Course - 4 hours
+Socratica - SQL Programming - Short, focused videos
+
+4. Data Visualization & Charts
+
+Chart.js Documentation - Official docs (best resource)
+Traversy Media - Chart.js Crash Course - 1 hour
+freeCodeCamp - Data Visualization - Interactive course
+Recharts Examples - Since you're using React
+
+5. CRUD Operations
+
+Web Dev Simplified - Build a CRUD App - 1 hour practical
+Traversy Media - MERN Stack Tutorial - Full CRUD app
+Net Ninja - Node.js Tutorial - Playlist with CRUD
+
+6. Local Deployment & Server Basics
+
+Traversy Media - Express.js Crash Course - 1.5 hours
+freeCodeCamp - Node & Express Tutorial - 8 hours comprehensive
+NetworkChuck - Raspberry Pi Server - If using Pi
+Fireship - 100 Seconds of Node.js - Quick overview
+
+7. Complete Project-Based Learning
+
+freeCodeCamp - Full Stack Web Dev - 10 hours
+Traversy Media - Full Stack Expense Tracker - Literally your project!
+Dave Gray - MERN Stack Course - 9 hour series
+
+
+📚 Best Learning Path Order:
+
+Week 1: Node.js basics + Express (Traversy Media courses)
+Week 2: SQL & SQLite (Web Dev Simplified + practice on SQLBolt)
+Week 3: Build REST API for your expense tracker (connect frontend to backend)
+Week 4: Database design + optimization
+Ongoing: Deploy locally, add features, learn charts
+
+
+🔥 Quick Tips:
+
+Start with Traversy Media's Expense Tracker tutorial - it's EXACTLY what you're building
+Don't watch passively - code along with every tutorial
+Build something after each concept - don't just move to the next video
+Use the official docs - they're often better than tutorials once you understand basics
+Join communities: r/webdev, r/node, Discord servers for help
+
+The UI is ready - now go learn backend and connect it! Your mom will love actually using this. 🚀

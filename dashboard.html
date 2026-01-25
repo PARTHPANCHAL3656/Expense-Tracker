@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link href="./styles/dashboard.css" rel="stylesheet" />
+    <link href="./styles/nav.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  </head>
+  <body>
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header-section">
+        <h1>Dashboard</h1>
+        <h3>January 2026 Overview</h3>
+      </div>
+
+      <!-- Total Spent Card -->
+      <div class="total-card">
+        <p class="card-label">💰 Total Spent This Month</p>
+        <div class="total-amount" id="total-spent">₹18000</div>
+        <div class="transaction-count" id="transaction-count"><p><span>0</span> Transactions</p></div>
+      </div>
+
+      <!-- Top Spending Categories -->
+      <div class="section" id="top-categories-list">
+        <h3 class="section-title">Top Spending Categories</h3>
+
+        <div class="category-item">
+          <div class="category-header">
+            <span class="category-icon">🏡</span>
+            <span class="category-name">Housing</span>
+            <span class="category-amount">₹15,000</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 83%"></div>
+          </div>
+          <p class="category-percent">83% of total</p>
+        </div>
+
+        <div class="category-item">
+          <div class="category-header">
+            <span class="category-icon">🛒</span>
+            <span class="category-name">Groceries</span>
+            <span class="category-amount">₹1,250</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 7%"></div>
+          </div>
+          <p class="category-percent">7% of total</p>
+        </div>
+
+        <div class="category-item">
+          <div class="category-header">
+            <span class="category-icon">✨</span>
+            <span class="category-name">Utilities</span>
+            <span class="category-amount">₹1,200</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 7%"></div>
+          </div>
+          <p class="category-percent">7% of total</p>
+        </div>
+      </div>
+
+      <!-- Category Breakdown (Pie Chart Placeholder) -->
+      <div class="section">
+        <h3 class="section-title">Category Breakdown</h3>
+        <canvas class="chart-placeholder" class="pie-chart" id="category-chart">
+          
+        </canvas>
+      </div>
+
+      <!-- Last 7 Days (Bar Chart Placeholder) -->
+      <div class="section">
+        <h3 class="section-title">Last 7 Days</h3>
+        <canvas class="chart-placeholder" class="bar-chart" id="daily-chart">
+          
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="home.html" class="nav-item">
+        <span class="icon">➕</span>
+        <span class="label">Add</span>
+      </a>
+      <a href="dashboard.html" class="nav-item active">
+        <span class="icon">📊</span>
+        <span class="label">Dashboard</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <span class="icon">📋</span>
+        <span class="label">History</span>
+      </a>
+    </nav>
+
+    <script src="./scripts/dashboard.js"></script>
+  </body>
+</html>

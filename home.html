@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense tracker</title>
+    <link href="./styles/home.css" rel="stylesheet" />
+    <link href="./styles/nav.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main-content" id="expense-form">
+      <div class="header-section">
+        <h1>ADD Expense</h1>
+        <h3>Track your daily spending</h3>
+      </div>
+      <div class="form-container">
+        <div class="input-group">
+          <p>Date</p>
+          <input type="date" id="expense-date" />
+        </div>
+        <div class="input-group">
+          <p>Amount</p>
+          <input type="number" id="expense-amount" step="1" placeholder="0" />
+        </div>
+      </div>
+      <div class="category-section">
+        <p>Category</p>
+        <div class="Category-grid">
+          <button type="button" class="gridButton" data-category="groceries">
+            🛒 Groceries
+          </button>
+          <button type="button" class="gridButton" data-category="Utilities">
+            ✨ Utilities
+          </button>
+          <button type="button" class="gridButton" data-category="Housing">
+            🏡 Housing
+          </button>
+          <button type="button" class="gridButton" data-category="Education">
+            📚 Education
+          </button>
+          <button type="button" class="gridButton" data-category="Healthcare">
+            💊 Healthcare
+          </button>
+          <button
+            type="button"
+            class="gridButton"
+            data-category="Transportation"
+          >
+            ⛽ Transportation
+          </button>
+          <button type="button" class="gridButton" data-category="Clothing">
+            👗 Clothing
+          </button>
+          <button
+            type="button"
+            class="gridButton"
+            data-category="Entertainment"
+          >
+            📺 Entertainment
+          </button>
+          <button
+            type="button"
+            class="gridButton"
+            data-category="Subscriptions"
+          >
+            🛜 Subscriptions
+          </button>
+          <button type="button" class="gridButton" data-category="Services">
+            👷 Services
+          </button>
+        </div>
+      </div>
+      <!-- Payment Method -->
+      <div class="payment-section">
+        <label for="payment-method">Payment Method</label>
+        <select id="payment-method" class="payment-select">
+          <option
+            value="cash"
+            type="button"
+            class="payment-btn active"
+            data-method="Cash"
+          >
+            Cash
+          </option>
+          <option
+            value="card"
+            type="button"
+            class="payment-btn"
+            data-method="Cash"
+          >
+            Card
+          </option>
+          <option
+            value="online-payment"
+            type="button"
+            class="payment-btn"
+            data-method="Online Payment"
+          >
+            Online Payment
+          </option>
+          <option
+            value="bank-transfer"
+            type="button"
+            class="payment-btn"
+            data-method="Bank-transfer"
+          >
+            Bank Transfer
+          </option>
+          <option
+            value="other"
+            type="button"
+            class="payment-btn"
+            data-method="Other"
+          >
+            Other
+          </option>
+        </select>
+      </div>
+      <!-- Description -->
+      <div class="description-section">
+        <label for="description">Description (Optional)</label>
+        <textarea
+          id="expense-description"
+          class="description-textarea"
+          placeholder="Add notes about this expense..."
+        ></textarea>
+      </div>
+      <!-- Save Button -->
+      <div class="save-button-container">
+        <button class="save-button">Save Expense</button>
+      </div>
+      <!-- Today's Expenses Summary -->
+      <div class="expense-summary">
+        <h3>Today's Expenses</h3>
+        <div class="amount" id="today-total">₹0</div>
+      </div>
+    </div>
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="home.html" class="nav-item active">
+        <span class="icon">➕</span>
+        <span class="label">Add</span>
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <span class="icon">📊</span>
+        <span class="label">Dashboard</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <span class="icon">📋</span>
+        <span class="label">History</span>
+      </a>
+    </nav>
+    <script src="./scripts/home.js"></script>
+  </body>
+</html>

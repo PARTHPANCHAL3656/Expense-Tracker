@@ -1,0 +1,200 @@
+/* Header */
+.header-section {
+  text-align: center;
+  padding: 20px 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 25px;
+}
+
+.header-section h1 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+}
+
+.header-section h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Form Container */
+.form-container {
+  padding: 0 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: white;
+}
+
+/* Category Section */
+.category-section {
+  padding: 0 20px;
+  max-width: 500px;
+  margin: 0 auto 25px auto;
+}
+
+.category-section > p {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.Category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gridButton {
+  flex: 0 0 calc(50% - 5px);
+  padding: 12px 8px;
+  min-height: 55px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.gridButton.selected {
+  background-color: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+/* Payment & Description */
+.payment-section,
+.description-section {
+  padding: 0 20px;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+
+.payment-section label,
+.description-section label {
+  display: block;
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.payment-select {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.payment-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.description-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 14px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.description-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Save Button */
+.save-button-container {
+  padding: 0 20px;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+
+.save-button {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Summary */
+.expense-summary {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto 25px auto;
+  background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+  border-radius: 16px;
+}
+
+.expense-summary h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.expense-summary .amount {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.gridButton.active {
+  background-color: #6366f1;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .header-section h1 {
+    font-size: 24px;
+  }
+  .form-container,
+  .category-section,
+  .payment-section,
+  .description-section,
+  .save-button-container,
+  .expense-summary {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
