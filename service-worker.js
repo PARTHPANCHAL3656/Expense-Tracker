@@ -1,14 +1,14 @@
 const CACHE_NAME = 'expense-tracker-v1';
 const urlsToCache = [
   '/',
-  '/home.html',
+  '/index.html',
   '/dashboard.html',
   '/history.html',
-  '/styles/home.css',
+  '/styles/index.css',
   '/styles/dashboard.css',
   '/styles/history.css',
   '/styles/nav.css',
-  '/scripts/home.js',
+  '/scripts/index.js',
   '/scripts/dashboard.js',
   '/scripts/history.js'
 ];

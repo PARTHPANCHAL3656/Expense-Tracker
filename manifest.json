@@ -2,7 +2,7 @@
   "name": "Expense Tracker",
   "short_name": "Expenses",
   "description": "Track daily expenses",
-  "start_url": "/Expense Tracker/home.html",
+  "start_url": "/Expense Tracker/index.html",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
