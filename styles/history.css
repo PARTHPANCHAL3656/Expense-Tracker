@@ -104,6 +104,7 @@
 
 .expense-amount {
   font-size: 18px;
+  margin: 0 0 40px 0;
   font-weight: 700;
   color: #333;
   align-self: flex-start;
@@ -261,7 +262,6 @@
     flex-wrap: wrap;
   }
   .expense-amount {
-    width: 100%;
     text-align: right;
     margin-top: 8px;
   }
