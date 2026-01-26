@@ -4,25 +4,25 @@
 
 // Category configuration matching YOUR HTML categories
 const CATEGORIES = {
-  Groceries: { name: 'Groceries', icon: '🛒' },
-  Utilities: { name: 'Utilities', icon: '✨' },
-  Housing: { name: 'Housing', icon: '🏡' },
-  Education: { name: 'Education', icon: '📚' },
-  Healthcare: { name: 'Healthcare', icon: '💊' },
-  Transportation: { name: 'Transportation', icon: '⛽' },
-  Clothing: { name: 'Clothing', icon: '👗' },
-  Entertainment: { name: 'Entertainment', icon: '📺' },
-  Subscriptions: { name: 'Subscriptions', icon: '🛜' },
-  Services: { name: 'Services', icon: '👷' }
+  Groceries: { name: "Groceries", icon: "🛒" },
+  Utilities: { name: "Utilities", icon: "✨" },
+  Housing: { name: "Housing", icon: "🏡" },
+  Education: { name: "Education", icon: "📚" },
+  Healthcare: { name: "Healthcare", icon: "💊" },
+  Transportation: { name: "Transportation", icon: "⛽" },
+  Clothing: { name: "Clothing", icon: "👗" },
+  Entertainment: { name: "Entertainment", icon: "📺" },
+  Subscriptions: { name: "Subscriptions", icon: "🛜" },
+  Services: { name: "Services", icon: "👷" },
 };
 
 // Track which category is selected
 let selectedCategory = null;
 
 // Wait for page to fully load before running code
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('✅ Page loaded, initializing...');
-  
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("✅ Page loaded, initializing...");
+
   // Setup all functionality
   setTodayDate();
   setupCategoryButtons();
@@ -32,51 +32,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function 1: Set today's date automatically
 function setTodayDate() {
-  const dateInput = document.getElementById('expense-date');
-  
+  const dateInput = document.getElementById("expense-date");
+
   // Get today's date in YYYY-MM-DD format
   const today = new Date();
   const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-  const day = String(today.getDate()).padStart(2, '0');
-  
+  const month = String(today.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+  const day = String(today.getDate()).padStart(2, "0");
+
   const todayString = `${year}-${month}-${day}`;
   dateInput.value = todayString;
-  
-  console.log('📅 Date set to:', todayString);
+
+  console.log("📅 Date set to:", todayString);
 }
 
 // Function 2: Setup category button clicks
 function setupCategoryButtons() {
   // Get all category buttons
-  const categoryButtons = document.querySelectorAll('.gridButton');
+  const categoryButtons = document.querySelectorAll(".gridButton");
   console.log(`🔘 Found ${categoryButtons.length} category buttons`);
-  
+
   // Add click event to each button
-  categoryButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
+  categoryButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
       // Remove 'active' class from all buttons
-      categoryButtons.forEach(function(btn) {
-        btn.classList.remove('active');
+      categoryButtons.forEach(function (btn) {
+        btn.classList.remove("active");
       });
-      
+
       // Add 'active' class to clicked button
-      button.classList.add('active');
-      
+      button.classList.add("active");
+
       // Save which category was selected
-      selectedCategory = button.getAttribute('data-category');
-      console.log('✅ Selected category:', selectedCategory);
+      selectedCategory = button.getAttribute("data-category");
+      console.log("✅ Selected category:", selectedCategory);
     });
   });
 }
 
 // Function 3: Setup save button click
 function setupSaveButton() {
-  const saveButton = document.querySelector('.save-button');
-  
-  saveButton.addEventListener('click', function() {
-    console.log('💾 Save button clicked');
-    
+  const saveButton = document.querySelector(".save-button");
+
+  saveButton.addEventListener("click", function () {
+    console.log("💾 Save button clicked");
+
     // Check if form is valid
     if (validateForm()) {
       // Save the expense
@@ -88,43 +88,47 @@ function setupSaveButton() {
 // Function 4: Validate form before saving
 function validateForm() {
   // Get the amount input
-  const amountInput = document.getElementById('expense-amount');
+  const amountInput = document.getElementById("expense-amount");
   const amount = amountInput.value.trim();
-  
+
   // Check 1: Is amount entered?
-  if (amount === '' || amount === '0' || parseFloat(amount) <= 0) {
-    showMessage('⚠️ Please enter a valid amount', 'error');
+  if (amount === "" || amount === "0" || parseFloat(amount) <= 0) {
+    showMessage("⚠️ Please enter a valid amount", "error");
     amountInput.focus();
     return false;
   }
-  
+
   // Check 2: Is category selected?
   if (!selectedCategory) {
-    showMessage('⚠️ Please select a category', 'error');
+    showMessage("⚠️ Please select a category", "error");
     return false;
   }
-  
-  console.log('✅ Form validation passed');
+
+  console.log("✅ Form validation passed");
   return true;
 }
 
 // Function 5: Save expense to localStorage
 function saveExpense() {
   // Get all form values
-  const date = document.getElementById('expense-date').value;
-  const amount = Math.round(parseFloat(document.getElementById('expense-amount').value)); // Whole number
-  const description = document.getElementById('expense-description').value.trim();
-  const paymentMethod = document.getElementById('payment-method').value;
-  
+  const date = document.getElementById("expense-date").value;
+  const amount = Math.round(
+    parseFloat(document.getElementById("expense-amount").value),
+  ); // Whole number
+  const description = document
+    .getElementById("expense-description")
+    .value.trim();
+  const paymentMethod = document.getElementById("payment-method").value;
+
   // Convert payment method value to display name
   const paymentDisplay = {
-    'cash': 'Cash',
-    'card': 'Card',
-    'online-payment': 'Online Payment',
-    'bank-transfer': 'Bank Transfer',
-    'other': 'Other'
+    cash: "Cash",
+    card: "Card",
+    "online-payment": "Online Payment",
+    "bank-transfer": "Bank Transfer",
+    other: "Other",
   };
-  
+
   // Create expense object
   const expense = {
     id: generateUniqueId(),
@@ -136,27 +140,27 @@ function saveExpense() {
     paymentMethod: paymentDisplay[paymentMethod] || paymentMethod,
     description: description,
     month: date.substring(0, 7), // "2026-01"
-    editable: true
+    editable: true,
   };
-  
-  console.log('📦 Created expense:', expense);
-  
+
+  console.log("📦 Created expense:", expense);
+
   // Get existing expenses from localStorage
   let expenses = getExpensesFromStorage();
-  
+
   // Add new expense to array
   expenses.push(expense);
-  
+
   // Save back to localStorage
-  localStorage.setItem('expenses', JSON.stringify(expenses));
-  console.log('💾 Saved to localStorage. Total expenses:', expenses.length);
-  
+  localStorage.setItem("expenses", JSON.stringify(expenses));
+  console.log("💾 Saved to localStorage. Total expenses:", expenses.length);
+
   // Show success message
-  showMessage('✅ Expense saved successfully!', 'success');
-  
+  showMessage("✅ Expense saved successfully!", "success");
+
   // Clear the form
   clearForm();
-  
+
   // Update today's total
   updateTodayTotal();
 }
@@ -170,116 +174,116 @@ function generateUniqueId() {
 
 // Function 7: Get expenses from localStorage
 function getExpensesFromStorage() {
-  const stored = localStorage.getItem('expenses');
-  
+  const stored = localStorage.getItem("expenses");
+
   if (stored) {
     try {
       return JSON.parse(stored);
     } catch (error) {
-      console.error('❌ Error reading localStorage:', error);
+      console.error("❌ Error reading localStorage:", error);
       return [];
     }
   }
-  
+
   return [];
 }
 
 // Function 8: Clear form after saving
 function clearForm() {
   // Clear amount
-  document.getElementById('expense-amount').value = '';
-  
+  document.getElementById("expense-amount").value = "";
+
   // Clear description
-  document.getElementById('expense-description').value = '';
-  
+  document.getElementById("expense-description").value = "";
+
   // Reset payment to first option (Cash)
-  document.getElementById('payment-method').selectedIndex = 0;
-  
+  document.getElementById("payment-method").selectedIndex = 0;
+
   // Remove active class from all category buttons
-  document.querySelectorAll('.gridButton').forEach(function(btn) {
-    btn.classList.remove('active');
+  document.querySelectorAll(".gridButton").forEach(function (btn) {
+    btn.classList.remove("active");
   });
-  
+
   // Clear selected category
   selectedCategory = null;
-  
+
   // Reset date to today
   setTodayDate();
-  
-  console.log('🧹 Form cleared');
+
+  console.log("🧹 Form cleared");
 }
 
 // Function 9: Update today's total display
 function updateTodayTotal() {
   // Get today's date in YYYY-MM-DD format
   const today = new Date();
-  const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-  
+  const todayString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
   // Get all expenses
   const expenses = getExpensesFromStorage();
-  
+
   // Filter today's expenses and calculate total
   let todayTotal = 0;
-  expenses.forEach(function(expense) {
+  expenses.forEach(function (expense) {
     if (expense.date === todayString) {
       todayTotal += expense.amount;
     }
   });
-  
+
   // Update the display
-  const todayTotalElement = document.getElementById('today-total');
-  todayTotalElement.textContent = '₹' + todayTotal.toLocaleString('en-IN');
-  
-  console.log('💰 Today\'s total: ₹' + todayTotal);
+  const todayTotalElement = document.getElementById("today-total");
+  todayTotalElement.textContent = "₹" + todayTotal.toLocaleString("en-IN");
+
+  console.log("💰 Today's total: ₹" + todayTotal);
 }
 
 // Function 10: Show message (success or error)
 function showMessage(text, type) {
   // Remove any existing message
-  const existingMessage = document.getElementById('notification-message');
+  const existingMessage = document.getElementById("notification-message");
   if (existingMessage) {
     existingMessage.remove();
   }
-  
+
   // Create message element
-  const message = document.createElement('div');
-  message.id = 'notification-message';
+  const message = document.createElement("div");
+  message.id = "notification-message";
   message.textContent = text;
-  
+
   // Style based on type
-  if (type === 'success') {
-    message.style.backgroundColor = '#10b981';
-    message.style.color = 'white';
-  } else if (type === 'error') {
-    message.style.backgroundColor = '#ef4444';
-    message.style.color = 'white';
+  if (type === "success") {
+    message.style.backgroundColor = "#10b981";
+    message.style.color = "white";
+  } else if (type === "error") {
+    message.style.backgroundColor = "#ef4444";
+    message.style.color = "white";
   }
-  
+
   // Common styles
-  message.style.position = 'fixed';
-  message.style.top = '20px';
-  message.style.left = '50%';
-  message.style.transform = 'translateX(-50%)';
-  message.style.padding = '12px 24px';
-  message.style.borderRadius = '8px';
-  message.style.fontSize = '14px';
-  message.style.fontWeight = '500';
-  message.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-  message.style.zIndex = '9999';
-  message.style.transition = 'all 0.3s';
-  
+  message.style.position = "fixed";
+  message.style.top = "20px";
+  message.style.left = "50%";
+  message.style.transform = "translateX(-50%)";
+  message.style.padding = "12px 24px";
+  message.style.borderRadius = "8px";
+  message.style.fontSize = "14px";
+  message.style.fontWeight = "500";
+  message.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+  message.style.zIndex = "9999";
+  message.style.transition = "all 0.3s";
+
   // Add to page
   document.body.appendChild(message);
-  
+
   // Animate in
-  setTimeout(function() {
-    message.style.opacity = '1';
+  setTimeout(function () {
+    message.style.opacity = "1";
   }, 10);
-  
+
   // Remove after 3 seconds
-  setTimeout(function() {
-    message.style.opacity = '0';
-    setTimeout(function() {
+  setTimeout(function () {
+    message.style.opacity = "0";
+    setTimeout(function () {
       message.remove();
     }, 300);
   }, 3000);
@@ -292,18 +296,22 @@ function showMessage(text, type) {
 // Function to view all expenses (for debugging)
 function viewAllExpenses() {
   const expenses = getExpensesFromStorage();
-  console.log('📊 All expenses:', expenses);
+  console.log("📊 All expenses:", expenses);
   console.table(expenses);
   return expenses;
 }
 
 // Function to clear all expenses (for testing)
 function clearAllExpenses() {
-  if (confirm('⚠️ Are you sure you want to delete ALL expenses? This cannot be undone!')) {
-    localStorage.removeItem('expenses');
+  if (
+    confirm(
+      "⚠️ Are you sure you want to delete ALL expenses? This cannot be undone!",
+    )
+  ) {
+    localStorage.removeItem("expenses");
     updateTodayTotal();
-    console.log('🗑️ All expenses cleared');
-    showMessage('All expenses deleted', 'success');
+    console.log("🗑️ All expenses cleared");
+    showMessage("All expenses deleted", "success");
   }
 }
 
@@ -311,7 +319,7 @@ function clearAllExpenses() {
 window.viewAllExpenses = viewAllExpenses;
 window.clearAllExpenses = clearAllExpenses;
 
-console.log('🎉 home.js loaded successfully!');
-console.log('💡 Debug commands:');
-console.log('   - viewAllExpenses() → View all saved expenses');
-console.log('   - clearAllExpenses() → Delete all expenses');
+console.log("🎉 home.js loaded successfully!");
+console.log("💡 Debug commands:");
+console.log("   - viewAllExpenses() → View all saved expenses");
+console.log("   - clearAllExpenses() → Delete all expenses");

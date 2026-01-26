@@ -3,58 +3,58 @@
 // ==========================================
 
 // Track current filter
-let currentFilter = 'all';
+let currentFilter = "all";
 
 // When page loads, initialize everything
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('📋 History page loading...');
-  
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("📋 History page loading...");
+
   setupFilterDropdown();
   renderExpenseList();
-  
-  console.log('✅ History page loaded successfully!');
+
+  console.log("✅ History page loaded successfully!");
 });
 
 // Function 1: Setup filter dropdown
 function setupFilterDropdown() {
-  const filterSelect = document.getElementById('category-filter');
-  
+  const filterSelect = document.getElementById("category-filter");
+
   if (!filterSelect) {
-    console.error('❌ Filter dropdown not found');
+    console.error("❌ Filter dropdown not found");
     return;
   }
-  
-  filterSelect.addEventListener('change', function(e) {
+
+  filterSelect.addEventListener("change", function (e) {
     currentFilter = e.target.value;
-    console.log('🔍 Filter changed to:', currentFilter);
+    console.log("🔍 Filter changed to:", currentFilter);
     renderExpenseList();
   });
 }
 
 // Function 2: Render expense list
 function renderExpenseList() {
-  const container = document.getElementById('expense-list');
-  
+  const container = document.getElementById("expense-list");
+
   if (!container) {
-    console.error('❌ Expense list container not found');
+    console.error("❌ Expense list container not found");
     return;
   }
-  
+
   // Get all expenses
   let expenses = getExpensesFromStorage();
-  
+
   // Apply filter
-  if (currentFilter !== 'all') {
-    expenses = expenses.filter(function(expense) {
+  if (currentFilter !== "all") {
+    expenses = expenses.filter(function (expense) {
       return expense.category === currentFilter;
     });
   }
-  
+
   // Sort by date (newest first)
-  expenses.sort(function(a, b) {
+  expenses.sort(function (a, b) {
     return new Date(b.date) - new Date(a.date);
   });
-  
+
   // If no expenses
   if (expenses.length === 0) {
     container.innerHTML = `
@@ -62,48 +62,48 @@ function renderExpenseList() {
         <p style="font-size: 48px; margin-bottom: 10px;">📭</p>
         <p style="font-size: 16px;">No expenses found</p>
         <p style="font-size: 14px; margin-top: 8px;">
-          ${currentFilter !== 'all' ? 'Try selecting a different category' : 'Start adding expenses to see them here'}
+          ${currentFilter !== "all" ? "Try selecting a different category" : "Start adding expenses to see them here"}
         </p>
       </div>
     `;
     return;
   }
-  
+
   // Build HTML for all expenses
-  let html = '';
-  
-  expenses.forEach(function(expense) {
+  let html = "";
+
+  expenses.forEach(function (expense) {
     html += createExpenseItemHTML(expense);
   });
-  
+
   container.innerHTML = html;
-  
+
   // Attach event listeners to buttons
   attachEventListeners();
-  
-  console.log('📊 Rendered', expenses.length, 'expenses');
+
+  console.log("📊 Rendered", expenses.length, "expenses");
 }
 
 // Function 3: Create HTML for single expense item
 function createExpenseItemHTML(expense) {
   // Format date (13 Jan 2026)
-  const date = new Date(expense.date + 'T00:00:00');
-  const formattedDate = date.toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric'
+  const date = new Date(expense.date + "T00:00:00");
+  const formattedDate = date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
   });
-  
+
   return `
     <div class="expense-item" data-id="${expense.id}">
       <div class="expense-icon">${expense.categoryIcon}</div>
       <div class="expense-details">
         <h4 class="expense-title">${expense.categoryName}</h4>
         <p class="expense-date">${formattedDate}</p>
-        ${expense.description ? `<p class="expense-description">${expense.description}</p>` : ''}
+        ${expense.description ? `<p class="expense-description">${expense.description}</p>` : ""}
         <p class="expense-payment">${expense.paymentMethod}</p>
       </div>
-      <div class="expense-amount">₹${expense.amount.toLocaleString('en-IN')}</div>
+      <div class="expense-amount">₹${expense.amount.toLocaleString("en-IN")}</div>
       <div class="expense-actions">
         <button class="action-btn edit" data-id="${expense.id}">Edit</button>
         <button class="action-btn delete" data-id="${expense.id}">Delete</button>
@@ -115,19 +115,19 @@ function createExpenseItemHTML(expense) {
 // Function 4: Attach event listeners to Edit and Delete buttons
 function attachEventListeners() {
   // Edit buttons
-  const editButtons = document.querySelectorAll('.action-btn.edit');
-  editButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      const expenseId = button.getAttribute('data-id');
+  const editButtons = document.querySelectorAll(".action-btn.edit");
+  editButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const expenseId = button.getAttribute("data-id");
       openEditModal(expenseId);
     });
   });
-  
+
   // Delete buttons
-  const deleteButtons = document.querySelectorAll('.action-btn.delete');
-  deleteButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      const expenseId = button.getAttribute('data-id');
+  const deleteButtons = document.querySelectorAll(".action-btn.delete");
+  deleteButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const expenseId = button.getAttribute("data-id");
       deleteExpense(expenseId);
     });
   });
@@ -136,53 +136,55 @@ function attachEventListeners() {
 // Function 5: Delete expense
 function deleteExpense(expenseId) {
   // Confirm deletion
-  const confirmed = confirm('⚠️ Are you sure you want to delete this expense?\n\nThis action cannot be undone.');
-  
+  const confirmed = confirm(
+    "⚠️ Are you sure you want to delete this expense?\n\nThis action cannot be undone.",
+  );
+
   if (!confirmed) {
     return;
   }
-  
+
   // Get all expenses
   const expenses = getExpensesFromStorage();
-  
+
   // Filter out the expense to delete
-  const updatedExpenses = expenses.filter(function(expense) {
+  const updatedExpenses = expenses.filter(function (expense) {
     return expense.id !== expenseId;
   });
-  
+
   // Save back to localStorage
-  localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
-  
-  console.log('🗑️ Deleted expense:', expenseId);
-  
+  localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
+
+  console.log("🗑️ Deleted expense:", expenseId);
+
   // Re-render list
   renderExpenseList();
-  
+
   // Show success message
-  showToast('✅ Expense deleted successfully!', 'success');
+  showToast("✅ Expense deleted successfully!", "success");
 }
 
 // Function 6: Open edit modal
 function openEditModal(expenseId) {
   // Get the expense
   const expenses = getExpensesFromStorage();
-  const expense = expenses.find(function(exp) {
+  const expense = expenses.find(function (exp) {
     return exp.id === expenseId;
   });
-  
+
   if (!expense) {
-    showToast('❌ Expense not found', 'error');
+    showToast("❌ Expense not found", "error");
     return;
   }
-  
+
   // Check if expense is editable (current month only)
   if (!expense.editable) {
-    showToast('⚠️ Cannot edit expenses from previous months', 'error');
+    showToast("⚠️ Cannot edit expenses from previous months", "error");
     return;
   }
-  
-  console.log('✏️ Opening edit modal for:', expense.categoryName);
-  
+
+  console.log("✏️ Opening edit modal for:", expense.categoryName);
+
   // Create modal HTML
   const modalHTML = `
     <div class="modal-overlay" id="edit-modal">
@@ -211,17 +213,17 @@ function openEditModal(expenseId) {
           <div class="form-group">
             <label>Payment Method</label>
             <select id="edit-payment">
-              <option value="Cash" ${expense.paymentMethod === 'Cash' ? 'selected' : ''}>Cash</option>
-              <option value="Card" ${expense.paymentMethod === 'Card' ? 'selected' : ''}>Card</option>
-              <option value="Online Payment" ${expense.paymentMethod === 'Online Payment' ? 'selected' : ''}>Online Payment</option>
-              <option value="Bank Transfer" ${expense.paymentMethod === 'Bank Transfer' ? 'selected' : ''}>Bank Transfer</option>
-              <option value="Other" ${expense.paymentMethod === 'Other' ? 'selected' : ''}>Other</option>
+              <option value="Cash" ${expense.paymentMethod === "Cash" ? "selected" : ""}>Cash</option>
+              <option value="Card" ${expense.paymentMethod === "Card" ? "selected" : ""}>Card</option>
+              <option value="Online Payment" ${expense.paymentMethod === "Online Payment" ? "selected" : ""}>Online Payment</option>
+              <option value="Bank Transfer" ${expense.paymentMethod === "Bank Transfer" ? "selected" : ""}>Bank Transfer</option>
+              <option value="Other" ${expense.paymentMethod === "Other" ? "selected" : ""}>Other</option>
             </select>
           </div>
           
           <div class="form-group">
             <label>Description</label>
-            <textarea id="edit-description" rows="3">${expense.description || ''}</textarea>
+            <textarea id="edit-description" rows="3">${expense.description || ""}</textarea>
           </div>
         </div>
         
@@ -232,13 +234,13 @@ function openEditModal(expenseId) {
       </div>
     </div>
   `;
-  
+
   // Add modal to page
-  document.body.insertAdjacentHTML('beforeend', modalHTML);
-  
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
+
   // Add modal styles
   addModalStyles();
-  
+
   // Setup modal event listeners
   setupModalEvents(expenseId);
 }
@@ -246,12 +248,12 @@ function openEditModal(expenseId) {
 // Function 7: Add modal styles
 function addModalStyles() {
   // Check if styles already exist
-  if (document.getElementById('modal-styles')) {
+  if (document.getElementById("modal-styles")) {
     return;
   }
-  
-  const styles = document.createElement('style');
-  styles.id = 'modal-styles';
+
+  const styles = document.createElement("style");
+  styles.id = "modal-styles";
   styles.textContent = `
     .modal-overlay {
       position: fixed;
@@ -400,37 +402,37 @@ function addModalStyles() {
       background: #4f46e5;
     }
   `;
-  
+
   document.head.appendChild(styles);
 }
 
 // Function 8: Setup modal event listeners
 function setupModalEvents(expenseId) {
-  const modal = document.getElementById('edit-modal');
-  const closeBtn = document.getElementById('close-modal');
-  const cancelBtn = document.getElementById('cancel-edit');
-  const saveBtn = document.getElementById('save-edit');
-  
+  const modal = document.getElementById("edit-modal");
+  const closeBtn = document.getElementById("close-modal");
+  const cancelBtn = document.getElementById("cancel-edit");
+  const saveBtn = document.getElementById("save-edit");
+
   // Close modal function
   function closeModal() {
     modal.remove();
   }
-  
+
   // Close button
-  closeBtn.addEventListener('click', closeModal);
-  
+  closeBtn.addEventListener("click", closeModal);
+
   // Cancel button
-  cancelBtn.addEventListener('click', closeModal);
-  
+  cancelBtn.addEventListener("click", closeModal);
+
   // Click outside modal
-  modal.addEventListener('click', function(e) {
+  modal.addEventListener("click", function (e) {
     if (e.target === modal) {
       closeModal();
     }
   });
-  
+
   // Save button
-  saveBtn.addEventListener('click', function() {
+  saveBtn.addEventListener("click", function () {
     saveEditedExpense(expenseId);
     closeModal();
   });
@@ -439,74 +441,74 @@ function setupModalEvents(expenseId) {
 // Function 9: Save edited expense
 function saveEditedExpense(expenseId) {
   // Get updated values
-  const amount = parseInt(document.getElementById('edit-amount').value);
-  const date = document.getElementById('edit-date').value;
-  const paymentMethod = document.getElementById('edit-payment').value;
-  const description = document.getElementById('edit-description').value.trim();
-  
+  const amount = parseInt(document.getElementById("edit-amount").value);
+  const date = document.getElementById("edit-date").value;
+  const paymentMethod = document.getElementById("edit-payment").value;
+  const description = document.getElementById("edit-description").value.trim();
+
   // Validate
   if (!amount || amount <= 0) {
-    showToast('⚠️ Please enter a valid amount', 'error');
+    showToast("⚠️ Please enter a valid amount", "error");
     return;
   }
-  
+
   if (!date) {
-    showToast('⚠️ Please select a date', 'error');
+    showToast("⚠️ Please select a date", "error");
     return;
   }
-  
+
   // Get all expenses
   const expenses = getExpensesFromStorage();
-  
+
   // Find and update the expense
-  const expenseIndex = expenses.findIndex(function(exp) {
+  const expenseIndex = expenses.findIndex(function (exp) {
     return exp.id === expenseId;
   });
-  
+
   if (expenseIndex === -1) {
-    showToast('❌ Expense not found', 'error');
+    showToast("❌ Expense not found", "error");
     return;
   }
-  
+
   // Update the expense
   expenses[expenseIndex].amount = amount;
   expenses[expenseIndex].date = date;
   expenses[expenseIndex].month = date.substring(0, 7);
   expenses[expenseIndex].paymentMethod = paymentMethod;
   expenses[expenseIndex].description = description;
-  
+
   // Save to localStorage
-  localStorage.setItem('expenses', JSON.stringify(expenses));
-  
-  console.log('💾 Updated expense:', expenseId);
-  
+  localStorage.setItem("expenses", JSON.stringify(expenses));
+
+  console.log("💾 Updated expense:", expenseId);
+
   // Re-render list
   renderExpenseList();
-  
+
   // Show success message
-  showToast('✅ Expense updated successfully!', 'success');
+  showToast("✅ Expense updated successfully!", "success");
 }
 
 // Function 10: Show toast notification
 function showToast(message, type) {
   // Remove existing toast
-  const existing = document.getElementById('toast-notification');
+  const existing = document.getElementById("toast-notification");
   if (existing) {
     existing.remove();
   }
-  
+
   // Create toast
-  const toast = document.createElement('div');
-  toast.id = 'toast-notification';
+  const toast = document.createElement("div");
+  toast.id = "toast-notification";
   toast.textContent = message;
-  
+
   // Style based on type
   toast.style.cssText = `
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: ${type === 'success' ? '#10b981' : '#ef4444'};
+    background: ${type === "success" ? "#10b981" : "#ef4444"};
     color: white;
     padding: 12px 24px;
     border-radius: 8px;
@@ -516,9 +518,9 @@ function showToast(message, type) {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     animation: slideDown 0.3s;
   `;
-  
+
   // Add animation
-  const style = document.createElement('style');
+  const style = document.createElement("style");
   style.textContent = `
     @keyframes slideDown {
       from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
@@ -526,15 +528,15 @@ function showToast(message, type) {
     }
   `;
   document.head.appendChild(style);
-  
+
   // Add to page
   document.body.appendChild(toast);
-  
+
   // Remove after 3 seconds
-  setTimeout(function() {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateX(-50%) translateY(-20px)';
-    setTimeout(function() {
+  setTimeout(function () {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateX(-50%) translateY(-20px)";
+    setTimeout(function () {
       toast.remove();
     }, 300);
   }, 3000);
@@ -542,30 +544,30 @@ function showToast(message, type) {
 
 // Helper function: Get expenses from localStorage
 function getExpensesFromStorage() {
-  const stored = localStorage.getItem('expenses');
-  
+  const stored = localStorage.getItem("expenses");
+
   if (stored) {
     try {
       return JSON.parse(stored);
     } catch (error) {
-      console.error('❌ Error reading expenses:', error);
+      console.error("❌ Error reading expenses:", error);
       return [];
     }
   }
-  
+
   return [];
 }
 
 // Function to manually refresh list (for testing)
 function refreshHistory() {
-  console.log('🔄 Refreshing history...');
+  console.log("🔄 Refreshing history...");
   renderExpenseList();
 }
 
 // Auto-refresh when page becomes visible
-document.addEventListener('visibilitychange', function() {
+document.addEventListener("visibilitychange", function () {
   if (!document.hidden) {
-    console.log('👀 Page visible, refreshing...');
+    console.log("👀 Page visible, refreshing...");
     renderExpenseList();
   }
 });
@@ -573,4 +575,6 @@ document.addEventListener('visibilitychange', function() {
 // Make refresh function available in console
 window.refreshHistory = refreshHistory;
 
-console.log('💡 Debug command: refreshHistory() - Manually refresh expense list');
+console.log(
+  "💡 Debug command: refreshHistory() - Manually refresh expense list",
+);

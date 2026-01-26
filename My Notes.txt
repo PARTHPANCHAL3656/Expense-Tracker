@@ -1,7 +1,3 @@
-Step-by-Step Implementation Plan
-Phase 1: Understanding the Data Structure
-Before coding, map out what data you need to capture for each expense:
-
 Single Expense Entry:
 - Date (when was it spent?)
 - Amount (how much?)
