@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>History</title>
-    <link href="./styles/history.css" rel="stylesheet" />
-    <link href="./styles/nav.css" rel="stylesheet" />
 
-    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="/styles/history.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+
+    <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#6366f1" />
-    <link rel="apple-touch-icon" href="icon-192.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="icon" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
   </head>
   <body>
     <div class="main-content">
@@ -60,9 +64,11 @@
 
     <script>
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js");
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then(() => console.log("SW registered"))
+          .catch((err) => console.log("SW failed", err));
       }
     </script>
-    
   </body>
 </html>
