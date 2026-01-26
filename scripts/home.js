@@ -4,7 +4,7 @@
 
 // Category configuration matching YOUR HTML categories
 const CATEGORIES = {
-  groceries: { name: 'Groceries', icon: '🛒' },
+  Groceries: { name: 'Groceries', icon: '🛒' },
   Utilities: { name: 'Utilities', icon: '✨' },
   Housing: { name: 'Housing', icon: '🏡' },
   Education: { name: 'Education', icon: '📚' },
