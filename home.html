@@ -6,6 +6,10 @@
     <title>Expense tracker</title>
     <link href="./styles/home.css" rel="stylesheet" />
     <link href="./styles/nav.css" rel="stylesheet" />
+
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#6366f1" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
   </head>
   <body>
     <div class="main-content" id="expense-form">
@@ -151,5 +155,12 @@
       </a>
     </nav>
     <script src="./scripts/home.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+    
   </body>
 </html>

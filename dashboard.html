@@ -7,6 +7,10 @@
     <link href="./styles/dashboard.css" rel="stylesheet" />
     <link href="./styles/nav.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#6366f1" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
   </head>
   <body>
     <div class="main-content">
@@ -97,5 +101,12 @@
     </nav>
 
     <script src="./scripts/dashboard.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+    
   </body>
 </html>
