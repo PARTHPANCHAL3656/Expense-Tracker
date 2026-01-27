@@ -18,5 +18,25 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "lang": "en",
+  "dir": "auto",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay",
+    "browser",
+    "fullscreen",
+    "minimal-ui"
+  ],
+  "categories": [
+    "business",
+    "education",
+    "finance",
+    "lifestyle",
+    "navigation",
+    "personalization",
+    "productivity",
+    "shopping",
+    "social"
   ]
 }
