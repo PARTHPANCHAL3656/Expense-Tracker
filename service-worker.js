@@ -1,29 +1,32 @@
-const CACHE_NAME = 'expense-tracker-v1';
+const CACHE_NAME = "expense-tracker-v1";
+
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/dashboard.html',
-  '/history.html',
-  '/styles/index.css',
-  '/styles/dashboard.css',
-  '/styles/history.css',
-  '/styles/nav.css',
-  '/scripts/index.js',
-  '/scripts/dashboard.js',
-  '/scripts/history.js'
+  "/Expense-Tracker/home.html",
+  "/Expense-Tracker/dashboard.html",
+  "/Expense-Tracker/history.html",
+
+  "/Expense-Tracker/styles/home.css",
+  "/Expense-Tracker/styles/dashboard.css",
+  "/Expense-Tracker/styles/history.css",
+  "/Expense-Tracker/styles/nav.css",
+
+  "/Expense-Tracker/scripts/home.js",
+  "/Expense-Tracker/scripts/dashboard.js",
+  "/Expense-Tracker/scripts/history.js",
+
+  "/Expense-Tracker/icon-192.png",
+  "/Expense-Tracker/icon-512.png",
 ];
 
-self.addEventListener('install', event => {
+self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)),
   );
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
+    caches.match(event.request).then((res) => res || fetch(event.request)),
   );
 });

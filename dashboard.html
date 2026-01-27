@@ -10,7 +10,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/Expense-Tracker/manifest.json" />
     <meta name="theme-color" content="#6366f1" />
     <meta name="mobile-web-app-capable" content="yes" />
 
@@ -109,7 +109,7 @@
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
-          .register("/service-worker.js")
+          .register("/Expense-Tracker/service-worker.js")
           .then(() => console.log("SW registered"))
           .catch((err) => console.log("SW failed", err));
       }
