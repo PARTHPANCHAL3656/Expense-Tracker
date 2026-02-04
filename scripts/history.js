@@ -2,8 +2,8 @@
 // HISTORY.JS - Custom for Your HTML
 // ==========================================
 
-// Track current filter
-let currentFilter = "all";
+// Track current filter (empty = show all)
+let currentFilter = '';
 
 // When page loads, initialize everything
 document.addEventListener("DOMContentLoaded", function () {
@@ -43,8 +43,8 @@ function renderExpenseList() {
   // Get all expenses
   let expenses = getExpensesFromStorage();
 
-  // Apply filter
-  if (currentFilter !== "all") {
+  // Apply filter (no filtering if no valid category selected)
+  if (currentFilter && currentFilter !== "all") {
     expenses = expenses.filter(function (expense) {
       return expense.category === currentFilter;
     });
