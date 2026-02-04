@@ -50,9 +50,12 @@ function renderExpenseList() {
     });
   }
 
-  // Sort by date (newest first)
+  // Sort by ID (latest added first) - most recent expense shows at top
   expenses.sort(function (a, b) {
-    return new Date(b.date) - new Date(a.date);
+    // Extract timestamp from ID (format: exp_1234567890_abc123)
+    const timeA = parseInt(a.id.split("_")[1]);
+    const timeB = parseInt(b.id.split("_")[1]);
+    return timeB - timeA; // Newest first
   });
 
   // If no expenses
