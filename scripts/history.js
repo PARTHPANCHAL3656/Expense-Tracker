@@ -581,3 +581,227 @@ window.refreshHistory = refreshHistory;
 console.log(
   "💡 Debug command: refreshHistory() - Manually refresh expense list",
 );
+
+// ==========================================
+// PAST MONTH FEATURE
+// ==========================================
+
+// Track if we're viewing past month
+let viewingPastMonth = false;
+let currentViewMonth = null;
+
+// Initialize past month feature when page loads
+document.addEventListener("DOMContentLoaded", function () {
+  // ... your existing code ...
+
+  // Add this after your existing initialization
+  setupPastMonthFeature();
+});
+
+// Setup past month button and dropdown
+function setupPastMonthFeature() {
+  const pastMonthBtn = document.getElementById("past-month-btn");
+  const monthDropdown = document.getElementById("month-dropdown");
+  const closeDropdown = document.getElementById("close-dropdown");
+  const backBtn = document.getElementById("back-to-current");
+
+  // Show dropdown when button clicked
+  pastMonthBtn.addEventListener("click", function () {
+    populateMonthDropdown();
+    monthDropdown.style.display = "block";
+  });
+
+  // Close dropdown
+  closeDropdown.addEventListener("click", function () {
+    monthDropdown.style.display = "none";
+  });
+
+  // Back to current expenses
+  backBtn.addEventListener("click", function () {
+    viewingPastMonth = false;
+    currentViewMonth = null;
+    showCurrentExpenses();
+  });
+}
+
+// Get list of all past months (excluding current month)
+function getPastMonths() {
+  const expenses = getExpensesFromStorage();
+  const monthSet = new Set();
+
+  // Get current month
+  const now = new Date();
+  const currentMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+
+  // Collect all unique months from expenses
+  expenses.forEach(function (expense) {
+    if (expense.month && expense.month !== currentMonth) {
+      monthSet.add(expense.month);
+    }
+  });
+
+  // Convert to array and sort (newest first)
+  const months = Array.from(monthSet).sort().reverse();
+
+  return months;
+}
+
+// Format month string to readable format (2026-01 → January 2026)
+function formatMonthName(monthString) {
+  const [year, month] = monthString.split("-");
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const monthIndex = parseInt(month) - 1;
+  return `${monthNames[monthIndex]} ${year}`;
+}
+
+// Populate the month dropdown list
+function populateMonthDropdown() {
+  const monthList = document.getElementById("month-list");
+  const pastMonths = getPastMonths();
+
+  if (pastMonths.length === 0) {
+    monthList.innerHTML = `
+      <div class="no-past-months">
+        <p>📭 No past months yet</p>
+        <p style="font-size: 13px; color: #999; margin-top: 8px;">
+          Past months will appear here automatically when the month changes
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  // Build month buttons
+  let html = "";
+  pastMonths.forEach(function (month) {
+    const displayName = formatMonthName(month);
+    html += `
+      <button class="month-item" data-month="${month}">
+        <span class="month-name">${displayName}</span>
+        <span class="month-arrow">→</span>
+      </button>
+    `;
+  });
+
+  monthList.innerHTML = html;
+
+  // Attach click handlers
+  document.querySelectorAll(".month-item").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const selectedMonth = button.getAttribute("data-month");
+      showMonthSummary(selectedMonth);
+      document.getElementById("month-dropdown").style.display = "none";
+    });
+  });
+}
+
+// Show summary for selected past month
+function showMonthSummary(monthString) {
+  viewingPastMonth = true;
+  currentViewMonth = monthString;
+
+  const expenses = getExpensesFromStorage();
+
+  // Filter expenses for this month
+  const monthExpenses = expenses.filter(function (expense) {
+    return expense.month === monthString;
+  });
+
+  // Calculate total
+  let total = 0;
+  monthExpenses.forEach(function (expense) {
+    total += expense.amount;
+  });
+
+  // Calculate category breakdown
+  const categoryTotals = {};
+  monthExpenses.forEach(function (expense) {
+    const cat = expense.category;
+    if (!categoryTotals[cat]) {
+      categoryTotals[cat] = {
+        name: expense.categoryName,
+        icon: expense.categoryIcon,
+        total: 0,
+      };
+    }
+    categoryTotals[cat].total += expense.amount;
+  });
+
+  // Sort categories by total (highest first)
+  const sortedCategories = [];
+  for (let key in categoryTotals) {
+    sortedCategories.push({
+      category: key,
+      name: categoryTotals[key].name,
+      icon: categoryTotals[key].icon,
+      total: categoryTotals[key].total,
+    });
+  }
+  sortedCategories.sort(function (a, b) {
+    return b.total - a.total;
+  });
+
+  // Update UI
+  document.getElementById("summary-month-title").textContent =
+    formatMonthName(monthString);
+  document.getElementById("summary-total-amount").textContent =
+    "₹" + total.toLocaleString("en-IN");
+
+  // Build category breakdown HTML
+  const categoriesContainer = document.getElementById("summary-categories");
+  let html = '<h3 class="category-breakdown-title">Category Breakdown</h3>';
+
+  if (sortedCategories.length === 0) {
+    html +=
+      '<p style="text-align: center; color: #999; padding: 20px;">No expenses in this month</p>';
+  } else {
+    sortedCategories.forEach(function (cat) {
+      const percentage = total > 0 ? Math.round((cat.total / total) * 100) : 0;
+      html += `
+        <div class="summary-category-item">
+          <div class="summary-cat-header">
+            <span class="summary-cat-icon">${cat.icon}</span>
+            <span class="summary-cat-name">${cat.name}</span>
+            <span class="summary-cat-amount">₹${cat.total.toLocaleString("en-IN")}</span>
+          </div>
+          <div class="summary-progress-bar">
+            <div class="summary-progress-fill" style="width: ${percentage}%"></div>
+          </div>
+          <p class="summary-cat-percent">${percentage}% of total</p>
+        </div>
+      `;
+    });
+  }
+
+  categoriesContainer.innerHTML = html;
+
+  // Hide current expense list, show summary
+  document.getElementById("expense-list").style.display = "none";
+  document.querySelector(".filter-section").style.display = "none";
+  document.querySelector(".past-month-section").style.display = "none";
+  document.getElementById("month-summary").style.display = "block";
+}
+
+// Show current month expenses (back button)
+function showCurrentExpenses() {
+  document.getElementById("expense-list").style.display = "block";
+  document.querySelector(".filter-section").style.display = "block";
+  document.querySelector(".past-month-section").style.display = "block";
+  document.getElementById("month-summary").style.display = "none";
+
+  // Re-render current expenses
+  renderExpenseList();
+}
