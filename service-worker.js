@@ -8,6 +8,7 @@ const urlsToCache = [
   "/Expense-Tracker/styles/dashboard.css",
   "/Expense-Tracker/styles/history.css",
   "/Expense-Tracker/styles/nav.css",
+  "/Expense-Tracker/styles/install.css",
   "/Expense-Tracker/scripts/home.js",
   "/Expense-Tracker/scripts/dashboard.js",
   "/Expense-Tracker/scripts/history.js",
