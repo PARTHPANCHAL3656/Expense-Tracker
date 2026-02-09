@@ -17,8 +17,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="Expense-Tracker" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icons" />
-    <link rel="apple-touch-icon" href="icons/apple-icon-180.png">
-
+    <link rel="apple-touch-icon" href="icons/apple-icon-180.png" />
   </head>
   <body>
     <div class="main-content">
@@ -97,6 +96,14 @@
     <!-- Expense List -->
     <div class="expense-list" id="expense-list"></div>
 
+    <button id="installBtn" onclick="installApp()" class="install-btn">
+      Install App
+    </button>
+
+    <div id="iosBanner" class="ios-banner">
+      📌 iPhone users: Tap <b>Share</b> → <b>Add to Home Screen</b>
+    </div>
+
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
       <a href="index.html" class="nav-item">
@@ -114,6 +121,7 @@
     </nav>
 
     <script src="/Expense-Tracker/scripts/history.js"></script>
+    <script src="/Expense-Tracker/scripts/install.js"></script>
 
     <script>
       if ("serviceWorker" in navigator) {

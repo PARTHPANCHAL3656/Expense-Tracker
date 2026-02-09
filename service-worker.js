@@ -11,6 +11,7 @@ const urlsToCache = [
   "/Expense-Tracker/scripts/home.js",
   "/Expense-Tracker/scripts/dashboard.js",
   "/Expense-Tracker/scripts/history.js",
+  "/Expense-Tracker/scripts/install.js",
   "/Expense-Tracker/icon-192.png",
   "/Expense-Tracker/icon-512.png",
 ];

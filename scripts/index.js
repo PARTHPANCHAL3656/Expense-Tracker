@@ -1,7 +1,3 @@
-// ==========================================
-// HOME.JS - Add Expense (Custom for your HTML)
-// ==========================================
-
 // Category configuration matching YOUR HTML categories
 const CATEGORIES = {
   Groceries: { name: "Groceries", icon: "🛒" },

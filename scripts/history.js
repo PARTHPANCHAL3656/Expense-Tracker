@@ -1,7 +1,3 @@
-// ==========================================
-// HISTORY.JS - Custom for Your HTML
-// ==========================================
-
 // Track current filter (empty = show all)
 let currentFilter = '';
 

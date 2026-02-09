@@ -46,3 +46,33 @@
 .main-content {
   padding-bottom: 16px;
 }
+
+/* Install Button */
+.install-btn {
+  display: none;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background: #6366f1;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: 0.2s ease;
+}
+
+.install-btn:hover {
+  background: #4f46e5;
+}
+
+/* iOS Install Banner */
+.ios-banner {
+  display: none;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  font-size: 14px;
+  color: #111827;
+}
