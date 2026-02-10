@@ -1,40 +1,28 @@
 // Category configuration matching YOUR HTML categories
-// const CATEGORIES = {
-//   Groceries: { name: "Groceries", icon: "🛒" },
-//   Utilities: { name: "Utilities", icon: "✨" },
-//   Housing: { name: "Housing", icon: "🏡" },
-//   Education: { name: "Education", icon: "📚" },
-//   Healthcare: { name: "Healthcare", icon: "💊" },
-//   Transportation: { name: "Transportation", icon: "⛽" },
-//   Clothing: { name: "Clothing", icon: "👗" },
-//   Entertainment: { name: "Entertainment", icon: "📺" },
-//   Subscriptions: { name: "Subscriptions", icon: "🛜" },
-//   Services: { name: "Services", icon: "👷" },
-// };
 const CATEGORIES = {
   Groceries: {
     name: "Groceries",
-    icon: "/Expense-Tracker/icons/shopping-cart.svg",
+    icon: "/Expense-Tracker/icons/svg/shopping-cart.svg",
   },
 
   Utilities: {
     name: "Utilities",
-    icon: "/Expense-Tracker/icons/zap.svg",
+    icon: "/Expense-Tracker/icons/svg/zap.svg",
   },
 
   Housing: {
     name: "Housing",
-    icon: "/Expense-Tracker/icons/home.svg",
+    icon: "/Expense-Tracker/icons/svg/home.svg",
   },
 
   Education: {
     name: "Education",
-    icon: "/Expense-Tracker/icons/graduation-cap.svg",
+    icon: "/Expense-Tracker/icons/svg/graduation-cap.svg",
   },
 
   Healthcare: {
     name: "Healthcare",
-    icon: "/Expense-Tracker/icons/pill.svg",
+    icon: "/Expense-Tracker/icons/svg/pill.svg",
   },
 
   Transportation: {
@@ -59,7 +47,7 @@ const CATEGORIES = {
 
   Services: {
     name: "Services",
-    icon: "/Expense-Tracker/icons/user-round-pen.svg",
+    icon: "/Expense-Tracker/icons/svg/user-round-pen.svg",
   },
 };
 
