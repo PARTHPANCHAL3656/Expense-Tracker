@@ -2,52 +2,52 @@
 const CATEGORIES = {
   Groceries: {
     name: "Groceries",
-    icon: "/Expense-Tracker/icons/svg/shopping-cart.svg",
+    icon: "/icons/svg/shopping-cart.svg",
   },
 
   Utilities: {
     name: "Utilities",
-    icon: "/Expense-Tracker/icons/svg/zap.svg",
+    icon: "/icons/svg/zap.svg",
   },
 
   Housing: {
     name: "Housing",
-    icon: "/Expense-Tracker/icons/svg/home.svg",
+    icon: "/icons/svg/home.svg",
   },
 
   Education: {
     name: "Education",
-    icon: "/Expense-Tracker/icons/svg/graduation-cap.svg",
+    icon: "/icons/svg/graduation-cap.svg",
   },
 
   Healthcare: {
     name: "Healthcare",
-    icon: "/Expense-Tracker/icons/svg/pill.svg",
+    icon: "/icons/svg/pill.svg",
   },
 
   Transportation: {
     name: "Transportation",
-    icon: "/Expense-Tracker/icons/svg/car.svg",
+    icon: "/icons/svg/car.svg",
   },
 
   Clothing: {
     name: "Clothing",
-    icon: "/Expense-Tracker/icons/svg/shirt.svg",
+    icon: "/icons/svg/shirt.svg",
   },
 
   Entertainment: {
     name: "Entertainment",
-    icon: "/Expense-Tracker/icons/svg/clapperboard.svg",
+    icon: "/icons/svg/clapperboard.svg",
   },
 
   Subscriptions: {
     name: "Subscriptions",
-    icon: "/Expense-Tracker/icons/svg/calendar-days.svg",
+    icon: "/icons/svg/calendar-days.svg",
   },
 
   Services: {
     name: "Services",
-    icon: "/Expense-Tracker/icons/svg/user-round-pen.svg",
+    icon: "/icons/svg/user-round-pen.svg",
   },
 };
 
