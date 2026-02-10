@@ -4,12 +4,12 @@ let dailyBarChart = null;
 
 // When page loads, initialize everything
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("📊 Dashboard loading...");
+  console.log("Dashboard loading...");
 
   // Update all dashboard elements
   updateDashboard();
 
-  console.log("✅ Dashboard loaded successfully!");
+  console.log("Dashboard loaded successfully!");
 });
 
 // Main function to update entire dashboard
@@ -65,7 +65,7 @@ function updateTotalSpent() {
     totalElement.textContent = <img src="icons/svg/indian-rupee.svg" class="catIcon" /> + total.toLocaleString("en-IN");
   }
 
-  console.log("💰 Total spent this month: ₹" + total);
+  console.log("Total spent this month: ₹" + total);
 }
 
 // Function 3: Update transaction count
@@ -82,7 +82,7 @@ function updateTransactionCount() {
     }
   }
 
-  console.log("📝 Transaction count: " + count);
+  console.log("Transaction count: " + count);
 }
 
 // Function 4: Update top spending categories
@@ -169,14 +169,14 @@ function updateTopCategories() {
 
   container.innerHTML = html;
 
-  console.log("📊 Top categories updated");
+  console.log("Top categories updated");
 }
 
 // Function 5: Create pie chart for category breakdown
 function createPieChart() {
   const canvas = document.getElementById("category-chart");
   if (!canvas) {
-    console.error("❌ Pie chart canvas not found");
+    console.error("Pie chart canvas not found");
     return;
   }
 
@@ -279,7 +279,7 @@ function createPieChart() {
     },
   });
 
-  console.log("🥧 Pie chart created with", labels.length, "categories");
+  console.log("Pie chart created with", labels.length, "categories");
 }
 
 // Function 6: Create bar chart for last 7 days
@@ -385,7 +385,7 @@ function createBarChart() {
     },
   });
 
-  console.log("📊 Bar chart created for last 7 days");
+  console.log("Bar chart created for last 7 days");
 }
 
 // Helper function: Get current month's expenses
@@ -412,7 +412,7 @@ function getExpensesFromStorage() {
     try {
       return JSON.parse(stored);
     } catch (error) {
-      console.error("❌ Error reading expenses:", error);
+      console.error("Error reading expenses:", error);
       return [];
     }
   }
@@ -422,14 +422,14 @@ function getExpensesFromStorage() {
 
 // Function to manually refresh dashboard (for testing)
 function refreshDashboard() {
-  console.log("🔄 Refreshing dashboard...");
+  console.log("Refreshing dashboard...");
   updateDashboard();
 }
 
 // Auto-refresh when page becomes visible (if user switches tabs)
 document.addEventListener("visibilitychange", function () {
   if (!document.hidden) {
-    console.log("👀 Page visible, refreshing...");
+    console.log("Page visible, refreshing...");
     updateDashboard();
   }
 });
@@ -437,4 +437,4 @@ document.addEventListener("visibilitychange", function () {
 // Make refresh function available in console
 window.refreshDashboard = refreshDashboard;
 
-console.log("💡 Debug command: refreshDashboard() - Manually refresh all data");
+console.log("Debug command: refreshDashboard() - Manually refresh all data");

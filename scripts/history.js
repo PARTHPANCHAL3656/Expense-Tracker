@@ -3,12 +3,12 @@ let currentFilter = '';
 
 // When page loads, initialize everything
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("📋 History page loading...");
+  console.log("History page loading...");
 
   setupFilterDropdown();
   renderExpenseList();
 
-  console.log("✅ History page loaded successfully!");
+  console.log("History page loaded successfully!");
 });
 
 // Function 1: Setup filter dropdown
@@ -16,13 +16,13 @@ function setupFilterDropdown() {
   const filterSelect = document.getElementById("category-filter");
 
   if (!filterSelect) {
-    console.error("❌ Filter dropdown not found");
+    console.error("Filter dropdown not found");
     return;
   }
 
   filterSelect.addEventListener("change", function (e) {
     currentFilter = e.target.value;
-    console.log("🔍 Filter changed to:", currentFilter);
+    console.log("Filter changed to:", currentFilter);
     renderExpenseList();
   });
 }
@@ -32,7 +32,7 @@ function renderExpenseList() {
   const container = document.getElementById("expense-list");
 
   if (!container) {
-    console.error("❌ Expense list container not found");
+    console.error("Expense list container not found");
     return;
   }
 
@@ -80,7 +80,7 @@ function renderExpenseList() {
   // Attach event listeners to buttons
   attachEventListeners();
 
-  console.log("📊 Rendered", expenses.length, "expenses");
+  console.log("Rendered", expenses.length, "expenses");
 }
 
 // Function 3: Create HTML for single expense item
@@ -136,7 +136,7 @@ function attachEventListeners() {
 function deleteExpense(expenseId) {
   // Confirm deletion
   const confirmed = confirm(
-    "⚠️ Are you sure you want to delete this expense?\n\nThis action cannot be undone.",
+    "Are you sure you want to delete this expense?\n\nThis action cannot be undone.",
   );
 
   if (!confirmed) {
@@ -154,13 +154,13 @@ function deleteExpense(expenseId) {
   // Save back to localStorage
   localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
 
-  console.log("🗑️ Deleted expense:", expenseId);
+  console.log("Deleted expense:", expenseId);
 
   // Re-render list
   renderExpenseList();
 
   // Show success message
-  showToast("✅ Expense deleted successfully!", "success");
+  showToast("Expense deleted successfully!", "success");
 }
 
 // Function 6: Open edit modal
@@ -172,17 +172,17 @@ function openEditModal(expenseId) {
   });
 
   if (!expense) {
-    showToast("❌ Expense not found", "error");
+    showToast("Expense not found", "error");
     return;
   }
 
   // Check if expense is editable (current month only)
   if (!expense.editable) {
-    showToast("⚠️ Cannot edit expenses from previous months", "error");
+    showToast("Cannot edit expenses from previous months", "error");
     return;
   }
 
-  console.log("✏️ Opening edit modal for:", expense.categoryName);
+  console.log("Opening edit modal for:", expense.categoryName);
 
   // Create modal HTML
   const modalHTML = `
@@ -447,12 +447,12 @@ function saveEditedExpense(expenseId) {
 
   // Validate
   if (!amount || amount <= 0) {
-    showToast("⚠️ Please enter a valid amount", "error");
+    showToast("Please enter a valid amount", "error");
     return;
   }
 
   if (!date) {
-    showToast("⚠️ Please select a date", "error");
+    showToast("Please select a date", "error");
     return;
   }
 
@@ -465,7 +465,7 @@ function saveEditedExpense(expenseId) {
   });
 
   if (expenseIndex === -1) {
-    showToast("❌ Expense not found", "error");
+    showToast("Expense not found", "error");
     return;
   }
 
@@ -479,13 +479,13 @@ function saveEditedExpense(expenseId) {
   // Save to localStorage
   localStorage.setItem("expenses", JSON.stringify(expenses));
 
-  console.log("💾 Updated expense:", expenseId);
+  console.log("Updated expense:", expenseId);
 
   // Re-render list
   renderExpenseList();
 
   // Show success message
-  showToast("✅ Expense updated successfully!", "success");
+  showToast("Expense updated successfully!", "success");
 }
 
 // Function 10: Show toast notification
@@ -549,7 +549,7 @@ function getExpensesFromStorage() {
     try {
       return JSON.parse(stored);
     } catch (error) {
-      console.error("❌ Error reading expenses:", error);
+      console.error("Error reading expenses:", error);
       return [];
     }
   }
@@ -559,14 +559,14 @@ function getExpensesFromStorage() {
 
 // Function to manually refresh list (for testing)
 function refreshHistory() {
-  console.log("🔄 Refreshing history...");
+  console.log("Refreshing history...");
   renderExpenseList();
 }
 
 // Auto-refresh when page becomes visible
 document.addEventListener("visibilitychange", function () {
   if (!document.hidden) {
-    console.log("👀 Page visible, refreshing...");
+    console.log("Page visible, refreshing...");
     renderExpenseList();
   }
 });

@@ -57,7 +57,7 @@ let selectedCategory = null;
 
 // Wait for page to fully load before running code
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("✅ Page loaded, initializing...");
+  console.log("Page loaded, initializing...");
 
   // Setup all functionality
   setTodayDate();
@@ -79,14 +79,14 @@ function setTodayDate() {
   const todayString = `${year}-${month}-${day}`;
   dateInput.value = todayString;
 
-  console.log("📅 Date set to:", todayString);
+  console.log("Date set to:", todayString);
 }
 
 // Function 2: Setup category button clicks
 function setupCategoryButtons() {
   // Get all category buttons
   const categoryButtons = document.querySelectorAll(".gridButton");
-  console.log(`🔘 Found ${categoryButtons.length} category buttons`);
+  console.log(`Found ${categoryButtons.length} category buttons`);
 
   // Add click event to each button
   categoryButtons.forEach(function (button) {
@@ -101,7 +101,7 @@ function setupCategoryButtons() {
 
       // Save which category was selected
       selectedCategory = button.getAttribute("data-category");
-      console.log("✅ Selected category:", selectedCategory);
+      console.log("Selected category:", selectedCategory);
     });
   });
 }
@@ -111,7 +111,7 @@ function setupSaveButton() {
   const saveButton = document.querySelector(".save-button");
 
   saveButton.addEventListener("click", function () {
-    console.log("💾 Save button clicked");
+    console.log("Save button clicked");
 
     // Check if form is valid
     if (validateForm()) {
@@ -129,18 +129,18 @@ function validateForm() {
 
   // Check 1: Is amount entered?
   if (amount === "" || amount === "0" || parseFloat(amount) <= 0) {
-    showMessage("⚠️ Please enter a valid amount", "error");
+    showMessage("Please enter a valid amount", "error");
     amountInput.focus();
     return false;
   }
 
   // Check 2: Is category selected?
   if (!selectedCategory) {
-    showMessage("⚠️ Please select a category", "error");
+    showMessage("Please select a category", "error");
     return false;
   }
 
-  console.log("✅ Form validation passed");
+  console.log("Form validation passed");
   return true;
 }
 
@@ -179,7 +179,7 @@ function saveExpense() {
     editable: true,
   };
 
-  console.log("📦 Created expense:", expense);
+  console.log("Created expense:", expense);
 
   // Get existing expenses from localStorage
   let expenses = getExpensesFromStorage();
@@ -189,10 +189,10 @@ function saveExpense() {
 
   // Save back to localStorage
   localStorage.setItem("expenses", JSON.stringify(expenses));
-  console.log("💾 Saved to localStorage. Total expenses:", expenses.length);
+  console.log("Saved to localStorage. Total expenses:", expenses.length);
 
   // Show success message
-  showMessage("✅ Expense saved successfully!", "success");
+  showMessage("Expense saved successfully!", "success");
 
   // Clear the form
   clearForm();
@@ -216,7 +216,7 @@ function getExpensesFromStorage() {
     try {
       return JSON.parse(stored);
     } catch (error) {
-      console.error("❌ Error reading localStorage:", error);
+      console.error("Error reading localStorage:", error);
       return [];
     }
   }
@@ -246,7 +246,7 @@ function clearForm() {
   // Reset date to today
   setTodayDate();
 
-  console.log("🧹 Form cleared");
+  console.log("Form cleared");
 }
 
 // Function 9: Update today's total display
@@ -270,7 +270,7 @@ function updateTodayTotal() {
   const todayTotalElement = document.getElementById("today-total");
   todayTotalElement.textContent = "₹" + todayTotal.toLocaleString("en-IN");
 
-  console.log("💰 Today's total: ₹" + todayTotal);
+  console.log("Today's total: ₹" + todayTotal);
 }
 
 // Function 10: Show message (success or error)
@@ -332,7 +332,7 @@ function showMessage(text, type) {
 // Function to view all expenses (for debugging)
 function viewAllExpenses() {
   const expenses = getExpensesFromStorage();
-  console.log("📊 All expenses:", expenses);
+  console.log("All expenses:", expenses);
   console.table(expenses);
   return expenses;
 }
@@ -341,12 +341,12 @@ function viewAllExpenses() {
 function clearAllExpenses() {
   if (
     confirm(
-      "⚠️ Are you sure you want to delete ALL expenses? This cannot be undone!",
+      "Are you sure you want to delete ALL expenses? This cannot be undone!",
     )
   ) {
     localStorage.removeItem("expenses");
     updateTodayTotal();
-    console.log("🗑️ All expenses cleared");
+    console.log("All expenses cleared");
     showMessage("All expenses deleted", "success");
   }
 }
@@ -355,7 +355,7 @@ function clearAllExpenses() {
 window.viewAllExpenses = viewAllExpenses;
 window.clearAllExpenses = clearAllExpenses;
 
-console.log("🎉 home.js loaded successfully!");
-console.log("💡 Debug commands:");
+console.log("home.js loaded successfully!");
+console.log("Debug commands:");
 console.log("   - viewAllExpenses() → View all saved expenses");
 console.log("   - clearAllExpenses() → Delete all expenses");
