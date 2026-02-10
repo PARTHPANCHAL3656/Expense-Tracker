@@ -168,7 +168,9 @@
 }
 
 .expense-icon {
-  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .expense-category {
@@ -515,7 +517,9 @@
 }
 
 .summary-cat-icon {
-  font-size: 24px;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .summary-cat-name {

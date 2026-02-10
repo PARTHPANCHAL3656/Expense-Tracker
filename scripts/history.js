@@ -95,7 +95,7 @@ function createExpenseItemHTML(expense) {
 
   return `
     <div class="expense-item" data-id="${expense.id}">
-      <div class="expense-icon">${expense.categoryIcon}</div>
+        <img src="${expense.categoryIcon}" alt="${expense.categoryName}" class="expense-icon">
       <div class="expense-details">
         <h4 class="expense-title">${expense.categoryName}</h4>
         <p class="expense-date">${formattedDate}</p>
@@ -769,7 +769,7 @@ function showMonthSummary(monthString) {
       html += `
         <div class="summary-category-item">
           <div class="summary-cat-header">
-            <span class="summary-cat-icon">${cat.icon}</span>
+            <img src="${cat.icon}" alt="${cat.name}" class="summary-cat-icon">
             <span class="summary-cat-name">${cat.name}</span>
             <span class="summary-cat-amount">₹${cat.total.toLocaleString("en-IN")}</span>
           </div>

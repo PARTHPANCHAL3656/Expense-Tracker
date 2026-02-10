@@ -155,7 +155,7 @@ function updateTopCategories() {
     html += `
       <div class="category-item">
         <div class="category-header">
-          <span class="category-icon">${cat.icon}</span>
+          <img src="${cat.icon}" alt="${cat.name}" class="category-icon">
           <span class="category-name">${cat.name}</span>
           <span class="category-amount">₹${cat.total.toLocaleString("en-IN")}</span>
         </div>

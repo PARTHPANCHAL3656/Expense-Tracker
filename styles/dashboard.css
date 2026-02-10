@@ -80,7 +80,9 @@
 }
 
 .category-icon {
-  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .category-name {
