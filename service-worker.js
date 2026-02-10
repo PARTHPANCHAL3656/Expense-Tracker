@@ -15,22 +15,6 @@ const urlsToCache = [
   "/Expense-Tracker/scripts/dashboard.js",
   "/Expense-Tracker/scripts/history.js",
   "/Expense-Tracker/scripts/install.js",
-
-  "/Expense-Tracker/icons/svg/add.svg",
-  "/Expense-Tracker/icons/svg/history.svg",
-  "/Expense-Tracker/icons/svg/dashboard.svg",
-
-  "/Expense-Tracker/icons/svg/calendar-days.svg",
-  "/Expense-Tracker/icons/svg/car.svg",
-  "/Expense-Tracker/icons/svg/clapperboard.svg",
-  "/Expense-Tracker/icons/svg/graduation-cap.svg",
-  "/Expense-Tracker/icons/svg/home.svg",
-  "/Expense-Tracker/icons/svg/indian-rupee.svg",
-  "/Expense-Tracker/icons/svg/pill.svg",
-  "/Expense-Tracker/icons/svg/shirt.svg",
-  "/Expense-Tracker/icons/svg/shopping-cart.svg",
-  "/Expense-Tracker/icons/svg/user-round-pen.svg",
-  "/Expense-Tracker/icons/svg/zap.svg",
   
   "/Expense-Tracker/icon-192.png",
   "/Expense-Tracker/icon-512.png",
