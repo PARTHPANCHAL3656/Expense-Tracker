@@ -62,7 +62,7 @@ function updateTotalSpent() {
   // Update display
   const totalElement = document.getElementById("total-spent");
   if (totalElement) {
-    totalElement.textContent = <img src="icons/svg/indian-rupee.svg" class="catIcon" /> + total.toLocaleString("en-IN");
+    totalElement.textContent = "₹" + total.toLocaleString("en-IN");
   }
 
   console.log("Total spent this month: ₹" + total);
