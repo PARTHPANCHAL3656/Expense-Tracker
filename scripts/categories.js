@@ -1,52 +1,54 @@
-// Category configuration matching YOUR HTML categories
+// SHARED CATEGORY CONFIGURATION
+// This file is used by all pages: home.js, dashboard.js, history.js
+
 const CATEGORIES = {
   Groceries: {
     name: "Groceries",
-    icon: "/icons/svg/shopping-cart.svg",
+    icon: "/Expense-Tracker/icons/svg/shopping-cart.svg",
   },
 
   Utilities: {
     name: "Utilities",
-    icon: "/icons/svg/zap.svg",
+    icon: "/Expense-Tracker/icons/svg/zap.svg",
   },
 
   Housing: {
     name: "Housing",
-    icon: "/icons/svg/home.svg",
+    icon: "/Expense-Tracker/icons/svg/home.svg",
   },
 
   Education: {
     name: "Education",
-    icon: "/icons/svg/graduation-cap.svg",
+    icon: "/Expense-Tracker/icons/svg/graduation-cap.svg",
   },
 
   Healthcare: {
     name: "Healthcare",
-    icon: "/icons/svg/pill.svg",
+    icon: "/Expense-Tracker/icons/svg/pill.svg",
   },
 
   Transportation: {
     name: "Transportation",
-    icon: "/icons/svg/car.svg",
+    icon: "/Expense-Tracker/icons/svg/car.svg",
   },
 
   Clothing: {
     name: "Clothing",
-    icon: "/icons/svg/shirt.svg",
+    icon: "/Expense-Tracker/icons/svg/shirt.svg",
   },
 
   Entertainment: {
     name: "Entertainment",
-    icon: "/icons/svg/clapperboard.svg",
+    icon: "/Expense-Tracker/icons/svg/clapperboard.svg",
   },
 
   Subscriptions: {
     name: "Subscriptions",
-    icon: "/icons/svg/calendar-days.svg",
+    icon: "/Expense-Tracker/icons/svg/calendar-days.svg",
   },
 
   Services: {
     name: "Services",
-    icon: "/icons/svg/user-round-pen.svg",
+    icon: "/Expense-Tracker/icons/svg/user-round-pen.svg",
   },
 };
