@@ -106,6 +106,19 @@ body {
 
   cursor: pointer;
   transition: all 0.2s ease;
+
+  display: flex;
+  align-items: center; /* ✅ Perfect vertical alignment */
+  justify-content: center;
+  gap: 8px;
+}
+
+.gridButton img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.75;
+  filter: brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(2000%)
+    hue-rotate(200deg);
 }
 
 .gridButton:hover {
@@ -224,6 +237,10 @@ body {
   color: white;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.install-btn {
+  margin-bottom: 90px; /* pushes above nav */
 }
 
 /* Mobile */

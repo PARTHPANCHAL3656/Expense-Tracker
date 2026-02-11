@@ -1,104 +1,91 @@
-/* Bottom Nav - shared across all pages */
-/* Bottom Nav - Premium Floating Dock */
+/* =========================================
+   PREMIUM FLOATING NAV (FIXED)
+   ========================================= */
+
 .bottom-nav {
   position: fixed;
-  bottom: 18px;
+  bottom: 14px;
   left: 50%;
   transform: translateX(-50%);
 
-  width: calc(100% - 40px);
-  max-width: 520px;
+  width: calc(100% - 32px);
+  max-width: 500px;
 
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
 
-  border: 1px solid rgba(202, 196, 185, 0.6);
-  border-radius: 26px;
+  border: 1px solid rgba(180, 180, 180, 0.35);
+  border-radius: 22px;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
 
-  padding: 14px 0;
+  padding: 8px 0;   /* ✅ Reduced height */
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
 
   z-index: 999;
 }
 
+/* Nav Items */
 .nav-item {
   flex: 1;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  gap: 5px;
-  padding: 10px 0;
+  gap: 3px;
+  padding: 6px 0;
 
+  text-decoration: none;
   background: none;
   border: none;
 
   cursor: pointer;
-  text-decoration: none;
-
-  transition: all 0.25s ease;
+  transition: 0.2s ease;
 }
 
-.nav-item .icon {
-  font-size: 22px;
-  color: rgba(24, 37, 37, 0.45);
-
-  transition: 0.25s ease;
-}
-
+/* Labels */
 .nav-item .label {
   font-size: 11px;
   font-weight: 500;
 
-  color: rgba(24, 37, 37, 0.55);
-
-  transition: 0.25s ease;
+  color: #03174f; /* ✅ Deep Navy */
+  opacity: 0.65;
 }
 
-.nav-item.active {
-  transform: scale(0.94);
-}
-
-.nav-item.active .icon {
-  color: #02113b;
-}
-
+/* Active Label */
 .nav-item.active .label {
-  color: #02113b;
+  opacity: 1;
   font-weight: 600;
 }
 
-.nav-item.active::before {
-  content: "";
-  position: absolute;
-  top: 4px;
-
-  width: 56px;
-  height: 46px;
-
-  background: rgba(2, 17, 59, 0.1);
-  border-radius: 18px;
-
-  z-index: -1;
-}
-.main-content {
-  padding-bottom: 110px;
-}
-
+/* SVG Icons */
 .catIcon {
   width: 22px;
   height: 22px;
-  opacity: 0.45;
-  transition: all 0.25s ease;
+
+  opacity: 0.55; /* ✅ darker */
+  color: #03174f; /* ✅ Deep Navy */
+  transition: 0.2s ease;
 }
+
+/* Active SVG */
 .nav-item.active .catIcon {
   opacity: 1;
-  filter: brightness(0) saturate(100%) invert(9%) sepia(32%) saturate(2200%)
-    hue-rotate(200deg);
+
+  /* ✅ True Cobalt Highlight */
+  filter: brightness(0) saturate(100%) invert(20%) sepia(90%)
+    saturate(2800%) hue-rotate(200deg);
+}
+
+/* ❌ REMOVE THE GREY ACTIVE BACKGROUND */
+.nav-item.active::before {
+  display: none;
+}
+
+/* Page spacing so nav doesn't cover buttons */
+.main-content {
+  padding-bottom: 90px; /* ✅ reduced */
 }

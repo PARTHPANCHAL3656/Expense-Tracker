@@ -1,14 +1,9 @@
 /* ==========================================
-   HISTORY PAGE — PREMIUM LUXURY UI
-   Palette: Prussian Blue (#02113B)
+   HISTORY PAGE — PREMIUM PRUSSIAN BLUE THEME
+   Primary: #02113B
+   Accent:  #052275
+   Surface: Silver / Soft Grey
    ========================================== */
-
-/* Global Page Background */
-body {
-  background: #f9fafc;
-  font-family: "Inter", sans-serif;
-  color: #111827;
-}
 
 /* ==========================================
    HEADER
@@ -17,7 +12,7 @@ body {
 .header-section {
   text-align: center;
   padding: 22px 16px;
-  background: linear-gradient(135deg, #02113b 0%, #03174f 100%);
+  background: linear-gradient(135deg, #02113B, #052275);
   color: white;
   border-radius: 0 0 22px 22px;
   margin-bottom: 22px;
@@ -25,20 +20,20 @@ body {
 
 .header-section h1 {
   margin: 0;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
 .header-section h3 {
   margin-top: 6px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   opacity: 0.85;
 }
 
 /* ==========================================
-   FILTER DROPDOWN
+   FILTER SECTION
    ========================================== */
 
 .filter-section {
@@ -52,20 +47,22 @@ body {
   padding: 14px;
   font-size: 15px;
   border-radius: 14px;
-  border: 1px solid rgba(2, 17, 59, 0.12);
-  background: white;
+
+  border: 1px solid rgba(2, 17, 59, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .filter-select:focus {
   outline: none;
-  border-color: #02113b;
-  box-shadow: 0 0 0 3px rgba(2, 17, 59, 0.15);
+  border-color: #052275;
+  box-shadow: 0 0 0 3px rgba(5, 34, 117, 0.15);
 }
 
 /* ==========================================
-   EXPENSE LIST CONTAINER
+   EXPENSE LIST WRAPPER
    ========================================== */
 
 .expense-list {
@@ -75,65 +72,61 @@ body {
 }
 
 /* ==========================================
-   EXPENSE CARD (Unified Design)
+   EXPENSE CARD (Main Layout)
    ========================================== */
 
 .expense-card {
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(2, 17, 59, 0.08);
   border-radius: 18px;
   padding: 16px;
   margin-bottom: 14px;
-  box-shadow: 0 8px 20px rgba(2, 17, 59, 0.06);
-  backdrop-filter: blur(10px);
-  transition: transform 0.2s ease;
+
+  border: 1px solid rgba(2, 17, 59, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .expense-card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(2, 17, 59, 0.12);
 }
 
-/* Header Row */
+/* ==========================================
+   CARD HEADER
+   ========================================== */
+
 .expense-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
+  margin-bottom: 12px;
 }
 
-/* Icon + Title */
 .expense-icon-title {
   display: flex;
-  align-items: center;
   gap: 12px;
+  align-items: center;
 }
 
 .expense-icon {
   width: 42px;
   height: 42px;
   border-radius: 14px;
-  background: rgba(2, 17, 59, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.expense-icon img {
-  width: 26px;
-  height: 26px;
+  background: rgba(5, 34, 117, 0.08);
+  padding: 8px;
   object-fit: contain;
 }
 
-/* Category + Date */
 .expense-category {
   margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #02113b;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
 }
 
 .expense-date {
-  margin-top: 3px;
+  margin-top: 4px;
   font-size: 13px;
   color: #6b7280;
 }
@@ -141,159 +134,353 @@ body {
 /* Amount */
 .expense-amount {
   font-size: 18px;
-  font-weight: 700;
-  color: #02113b;
+  font-weight: 800;
+  color: #02113B;
 }
 
-/* Description */
+/* ==========================================
+   CARD BODY
+   ========================================== */
+
 .expense-description {
-  margin: 12px 0 0 0;
+  margin: 0 0 12px 0;
   font-size: 14px;
   color: #4b5563;
   line-height: 1.4;
 }
 
-/* Footer Row */
+/* ==========================================
+   CARD FOOTER
+   ========================================== */
+
 .expense-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 14px;
+
   padding-top: 12px;
   border-top: 1px solid rgba(2, 17, 59, 0.08);
 }
 
 /* Payment Badge */
 .payment-badge {
+  background: rgba(5, 34, 117, 0.12);
+  color: #052275;
+
   padding: 5px 14px;
   border-radius: 999px;
+
   font-size: 12px;
-  font-weight: 500;
-  background: rgba(2, 17, 59, 0.08);
-  color: #02113b;
+  font-weight: 600;
 }
 
-/* Action Buttons */
+/* ==========================================
+   EDIT + DELETE BUTTONS
+   ========================================== */
+
 .expense-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .btn-edit,
 .btn-delete {
-  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 14px;
   border-radius: 10px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
+
   border: none;
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 600;
+
   transition: 0.2s ease;
 }
 
-/* Edit */
+/* Edit Button */
 .btn-edit {
-  background: rgba(2, 17, 59, 0.08);
-  color: #02113b;
+  background: rgba(5, 34, 117, 0.12);
+  color: #052275;
 }
 
 .btn-edit:hover {
-  background: rgba(2, 17, 59, 0.15);
+  background: rgba(5, 34, 117, 0.22);
 }
 
-/* Delete */
+/* Delete Button */
 .btn-delete {
-  background: rgba(255, 0, 0, 0.08);
-  color: #b91c1c;
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
 }
 
 .btn-delete:hover {
-  background: rgba(255, 0, 0, 0.14);
+  background: rgba(220, 38, 38, 0.22);
 }
 
 /* ==========================================
-   PAST MONTH FEATURE (Luxury Consistent)
+   PAST MONTH FEATURE
    ========================================== */
 
 .past-month-section {
   padding: 0 18px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .past-month-btn {
   width: 100%;
-  padding: 15px;
-  background: linear-gradient(135deg, #02113b, #052275);
+  padding: 14px;
+
+  background: linear-gradient(135deg, #02113B, #052275);
   color: white;
+
   border: none;
   border-radius: 16px;
+
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(2, 17, 59, 0.18);
-  transition: 0.25s ease;
+  transition: all 0.25s ease;
+
+  box-shadow: 0 6px 18px rgba(2, 17, 59, 0.25);
 }
 
 .past-month-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(2, 17, 59, 0.35);
 }
 
-/* Overlay */
+/* ==========================================
+   MONTH DROPDOWN OVERLAY
+   ========================================== */
+
 .month-dropdown-container {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
   z-index: 9999;
+
   display: flex;
   align-items: flex-end;
+
+  animation: fadeIn 0.25s ease;
 }
 
-/* Dropdown Panel */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.month-dropdown-header {
+  background: white;
+  padding: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 22px 22px 0 0;
+  border-bottom: 1px solid rgba(2, 17, 59, 0.08);
+}
+
+.month-dropdown-header h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.close-dropdown {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+
+  border: none;
+  background: rgba(2, 17, 59, 0.08);
+
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.close-dropdown:hover {
+  background: rgba(2, 17, 59, 0.16);
+}
+
+/* Month List */
 .month-list {
   background: white;
-  width: 100%;
   max-height: 420px;
-  padding: 16px;
-  border-radius: 22px 22px 0 0;
   overflow-y: auto;
+  padding: 14px;
+
+  animation: slideUp 0.25s ease;
 }
 
-/* Month Item */
+@keyframes slideUp {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .month-item {
   width: 100%;
   padding: 15px;
-  border-radius: 14px;
+
+  background: rgba(2, 17, 59, 0.04);
   border: 1px solid rgba(2, 17, 59, 0.08);
-  background: rgba(2, 17, 59, 0.03);
+
+  border-radius: 14px;
   margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .month-item:hover {
-  background: rgba(2, 17, 59, 0.08);
+  border-color: #052275;
   transform: translateX(4px);
 }
 
 .month-name {
-  font-size: 15px;
-  font-weight: 500;
-  color: #02113b;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.month-arrow {
+  font-size: 18px;
+  color: #052275;
+}
+
+.no-past-months {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
 }
 
 /* ==========================================
-   MOBILE RESPONSIVE
+   MONTH SUMMARY VIEW
+   ========================================== */
+
+.month-summary-container {
+  padding: 18px;
+}
+
+.summary-total {
+  background: linear-gradient(135deg, #02113B, #052275);
+  padding: 22px;
+  border-radius: 18px;
+  margin-bottom: 22px;
+
+  color: white;
+  box-shadow: 0 10px 28px rgba(2, 17, 59, 0.3);
+}
+
+.summary-label {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.summary-amount {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 8px 0 0 0;
+}
+
+/* Breakdown Items */
+.summary-category-item {
+  background: white;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+
+  border: 1px solid rgba(2, 17, 59, 0.08);
+}
+
+.summary-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.summary-cat-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.summary-cat-name {
+  flex: 1;
+  font-weight: 600;
+  color: #111827;
+}
+
+.summary-cat-amount {
+  font-weight: 700;
+  color: #02113B;
+}
+
+/* Progress */
+.summary-progress-bar {
+  background: rgba(2, 17, 59, 0.12);
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.summary-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #052275, #02113B);
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+
+.summary-cat-percent {
+  text-align: right;
+  font-size: 12px;
+  margin-top: 6px;
+  color: #6b7280;
+}
+
+/* ==========================================
+   MOBILE OPTIMIZATION
    ========================================== */
 
 @media (max-width: 480px) {
   .header-section h1 {
-    font-size: 23px;
+    font-size: 24px;
   }
 
   .expense-card {
     padding: 14px;
   }
 
-  .expense-amount {
-    font-size: 16px;
+  .expense-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .expense-actions {
+    width: 100%;
+    justify-content: flex-end;
   }
 }
