@@ -128,8 +128,8 @@ function createExpenseItemHTML(expense) {
       </span>
       <!-- Action Buttons -->
       <div class="expense-actions">
-        <button class="btn-edit" data-id="${expense.id}">Edit</button>
-        <button class="btn-delete" data-id="${expense.id}">Delete</button>
+        <button class="btn-edit action-btn edit" data-id="${expense.id}">Edit</button>
+        <button class="btn-delete action-btn delete" data-id="${expense.id}">Delete</button>
       </div>
     </div>
   </div>
