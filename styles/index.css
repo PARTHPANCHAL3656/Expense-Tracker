@@ -79,7 +79,7 @@ body {
   margin: 0 auto 25px auto;
 }
 
-.category-section > p {
+.category-section p {
   margin: 0 0 12px 0;
   font-size: 14px;
   font-weight: 600;
@@ -116,7 +116,7 @@ body {
 .gridButton img {
   width: 18px;
   height: 18px;
-  opacity: 0.75;
+  opacity: 0.95;
   filter: brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(2000%)
     hue-rotate(200deg);
 }
@@ -237,10 +237,6 @@ body {
   color: white;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-}
-
-.install-btn {
-  margin-bottom: 90px; /* pushes above nav */
 }
 
 /* Mobile */

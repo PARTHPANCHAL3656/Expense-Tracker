@@ -1,5 +1,5 @@
 // Track current filter (empty = show all)
-let currentFilter = '';
+let currentFilter = "";
 
 // When page loads, initialize everything
 document.addEventListener("DOMContentLoaded", function () {
@@ -94,21 +94,46 @@ function createExpenseItemHTML(expense) {
   });
 
   return `
-    <div class="expense-card" data-id="${expense.id}">
-        <img src="${expense.categoryIcon}" alt="${expense.categoryName}" class="expense-icon">
-      <div class="expense-details">
-        <h4 class="expense-title">${expense.categoryName}</h4>
-        <p class="expense-date">${formattedDate}</p>
-        ${expense.description ? `<p class="expense-description">${expense.description}</p>` : ""}
-        <p class="expense-payment">${expense.paymentMethod}</p>
+  <div class="expense-card" data-id="${expense.id}">
+    <!-- Top Header -->
+    <div class="expense-header">
+      <!-- Left Side Icon + Title -->
+      <div class="expense-icon-title">
+        <img 
+          src="${expense.categoryIcon}" 
+          alt="${expense.categoryName}" 
+          class="expense-icon"
+        />
+        <div>
+          <h4 class="expense-category">${expense.categoryName}</h4>
+          <p class="expense-date">${formattedDate}</p>
+        </div>
       </div>
-      <div class="expense-amount">₹${expense.amount.toLocaleString("en-IN")}</div>
-      <div class="expense-actions">
-        <button class="action-btn edit" data-id="${expense.id}">Edit</button>
-        <button class="action-btn delete" data-id="${expense.id}">Delete</button>
+      <!-- Amount -->
+      <div class="expense-amount">
+        ₹${expense.amount.toLocaleString("en-IN")}
       </div>
     </div>
-  `;
+    <!-- Description -->
+    ${
+      expense.description
+        ? `<p class="expense-description">${expense.description}</p>`
+        : ""
+    }
+    <!-- Footer -->
+    <div class="expense-footer">
+      <!-- Payment Badge -->
+      <span class="payment-badge">
+        ${expense.paymentMethod}
+      </span>
+      <!-- Action Buttons -->
+      <div class="expense-actions">
+        <button class="btn-edit" data-id="${expense.id}">Edit</button>
+        <button class="btn-delete" data-id="${expense.id}">Delete</button>
+      </div>
+    </div>
+  </div>
+`;
 }
 
 // Function 4: Attach event listeners to Edit and Delete buttons

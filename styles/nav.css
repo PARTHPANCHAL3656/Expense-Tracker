@@ -44,6 +44,9 @@
 
   cursor: pointer;
   transition: 0.2s ease;
+
+  opacity: 1;
+  font-weight: 600;
 }
 
 /* Labels */
@@ -52,13 +55,7 @@
   font-weight: 500;
 
   color: #03174f; /* ✅ Deep Navy */
-  opacity: 0.65;
-}
-
-/* Active Label */
-.nav-item.active .label {
-  opacity: 1;
-  font-weight: 600;
+  opacity: 0.85;
 }
 
 /* SVG Icons */
@@ -72,17 +69,12 @@
 }
 
 /* Active SVG */
-.nav-item.active .catIcon {
+.catIcon {
   opacity: 1;
 
   /* ✅ True Cobalt Highlight */
   filter: brightness(0) saturate(100%) invert(20%) sepia(90%)
     saturate(2800%) hue-rotate(200deg);
-}
-
-/* ❌ REMOVE THE GREY ACTIVE BACKGROUND */
-.nav-item.active::before {
-  display: none;
 }
 
 /* Page spacing so nav doesn't cover buttons */

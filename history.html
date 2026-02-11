@@ -50,54 +50,56 @@
           <option value="Services">Services</option>
         </select>
       </div>
-    </div>
 
-    <!-- NEW: Past Month View Button -->
-    <div class="past-month-section">
-      <button class="past-month-btn" id="past-month-btn">
-        View Past Months
-      </button>
-    </div>
-
-    <!-- NEW: Past Month Dropdown (hidden by default) -->
-    <div
-      class="month-dropdown-container"
-      id="month-dropdown"
-      style="display: none"
-    >
-      <div class="month-dropdown-header">
-        <h3>Select a Month</h3>
-        <button class="close-dropdown" id="close-dropdown">✕</button>
-      </div>
-      <div class="month-list" id="month-list">
-        <!-- Months will be populated by JavaScript -->
-      </div>
-    </div>
-
-    <!-- NEW: Past Month Summary View (hidden by default) -->
-    <div
-      class="month-summary-container"
-      id="month-summary"
-      style="display: none"
-    >
-      <div class="summary-header">
-        <button class="back-btn" id="back-to-current">← Back to Current</button>
-        <h2 id="summary-month-title">January 2026</h2>
+      <!-- NEW: Past Month View Button -->
+      <div class="past-month-section">
+        <button class="past-month-btn" id="past-month-btn">
+          View Past Months
+        </button>
       </div>
 
-      <div class="summary-total">
-        <p class="summary-label">Total Spent</p>
-        <div class="summary-amount" id="summary-total-amount">₹0</div>
+      <!-- NEW: Past Month Dropdown (hidden by default) -->
+      <div
+        class="month-dropdown-container"
+        id="month-dropdown"
+        style="display: none"
+      >
+        <div class="month-dropdown-header">
+          <h3>Select a Month</h3>
+          <button class="close-dropdown" id="close-dropdown">✕</button>
+        </div>
+        <div class="month-list" id="month-list">
+          <!-- Months will be populated by JavaScript -->
+        </div>
       </div>
 
-      <div class="summary-categories" id="summary-categories">
-        <!-- Category breakdown will be populated by JavaScript -->
-      </div>
-    </div>
+      <!-- NEW: Past Month Summary View (hidden by default) -->
+      <div
+        class="month-summary-container"
+        id="month-summary"
+        style="display: none"
+      >
+        <div class="summary-header">
+          <button class="back-btn" id="back-to-current">
+            ← Back to Current
+          </button>
+          <h2 id="summary-month-title">January 2026</h2>
+        </div>
 
-    <!-- Expense List (existing - this will hide when viewing past months) -->
-    <div class="expense-list" id="expense-list">
-      <!-- Your existing expense items -->
+        <div class="summary-total">
+          <p class="summary-label">Total Spent</p>
+          <div class="summary-amount" id="summary-total-amount">₹0</div>
+        </div>
+
+        <div class="summary-categories" id="summary-categories">
+          <!-- Category breakdown will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Expense List (existing - this will hide when viewing past months) -->
+      <div class="expense-list" id="expense-list">
+        <!-- Your existing expense items -->
+      </div>
     </div>
 
     <!-- Expense List -->
@@ -114,7 +116,7 @@
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-      <a href="index.html" class="nav-item active">
+      <a href="index.html" class="nav-item">
         <span class="icon"
           ><img src="icons/svg/add.svg" class="catIcon"
         /></span>
@@ -135,8 +137,8 @@
     </nav>
 
     <script src="/Expense-Tracker/scripts/categories.js"></script>
-    <script src="/Expense-Tracker/scripts/history.js"></script>
     <script src="/Expense-Tracker/scripts/install.js"></script>
+    <script src="/Expense-Tracker/scripts/history.js"></script>
 
     <script>
       if ("serviceWorker" in navigator) {
