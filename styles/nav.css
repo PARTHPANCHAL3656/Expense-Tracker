@@ -1,48 +1,104 @@
 /* Bottom Nav - shared across all pages */
+/* Bottom Nav - Premium Floating Dock */
 .bottom-nav {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-  border-top: 1px solid #e0e0e0;
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: calc(100% - 40px);
+  max-width: 520px;
+
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(202, 196, 185, 0.6);
+  border-radius: 26px;
+
   display: flex;
   justify-content: space-around;
-  padding: 12px 0;
+  align-items: center;
+
+  padding: 14px 0;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  z-index: 999;
 }
 
 .nav-item {
+  flex: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 8px 20px;
+
+  gap: 5px;
+  padding: 10px 0;
+
   background: none;
   border: none;
+
   cursor: pointer;
   text-decoration: none;
-  color: inherit;
+
+  transition: all 0.25s ease;
 }
 
 .nav-item .icon {
-  font-size: 24px;
-  color: #999;
+  font-size: 22px;
+  color: rgba(24, 37, 37, 0.45);
+
+  transition: 0.25s ease;
 }
 
 .nav-item .label {
-  font-size: 12px;
-  color: #666;
+  font-size: 11px;
+  font-weight: 500;
+
+  color: rgba(24, 37, 37, 0.55);
+
+  transition: 0.25s ease;
+}
+
+.nav-item.active {
+  transform: scale(0.94);
 }
 
 .nav-item.active .icon {
-  color: #667eea;
+  color: #02113b;
 }
 
 .nav-item.active .label {
-  color: #667eea;
+  color: #02113b;
   font-weight: 600;
 }
 
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+
+  width: 56px;
+  height: 46px;
+
+  background: rgba(2, 17, 59, 0.1);
+  border-radius: 18px;
+
+  z-index: -1;
+}
 .main-content {
-  padding-bottom: 16px;
+  padding-bottom: 110px;
+}
+
+.catIcon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.45;
+  transition: all 0.25s ease;
+}
+.nav-item.active .catIcon {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(9%) sepia(32%) saturate(2200%)
+    hue-rotate(200deg);
 }

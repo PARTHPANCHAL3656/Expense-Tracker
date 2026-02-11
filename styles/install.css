@@ -1,28 +1,62 @@
+/* ============================= */
+/* Premium Install Button */
+/* ============================= */
+
 .install-btn {
   display: none;
-  padding: 10px 16px;
+
+  padding: 12px 18px;
   border: none;
-  border-radius: 12px;
-  background: #6366f1;
-  color: white;
+  border-radius: 16px;
+
+  background: #02113b; /* Prussian Blue */
+  color: #ffffff;
+
   font-size: 14px;
   font-weight: 600;
+  font-family: "Inter", system-ui, sans-serif;
+
   cursor: pointer;
   margin-left: 10px;
-  transition: 0.2s ease;
+
+  box-shadow: 0 4px 12px rgba(2, 17, 59, 0.18);
+  transition: all 0.25s ease;
 }
 
 .install-btn:hover {
-  background: #4f46e5;
+  background: #03174f; /* Deep Navy hover */
+  transform: translateY(-1px);
 }
 
-/* iOS Install Banner */
+.install-btn:active {
+  transform: scale(0.98);
+}
+
+/* ============================= */
+/* iOS Install Banner (Premium) */
+/* ============================= */
+
 .ios-banner {
   display: none;
-  margin-top: 10px;
-  padding: 12px;
-  border-radius: 12px;
-  background: #f3f4f6;
+
+  margin-top: 12px;
+  padding: 14px 16px;
+
+  border-radius: 18px;
+  background: #f7f9f9; /* Soft luxury background */
+
+  border: 1px solid #cac4b9;
+
   font-size: 14px;
-  color: #111827;
+  font-weight: 500;
+  font-family: "Inter", system-ui, sans-serif;
+
+  color: #182525;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.ios-banner strong {
+  color: #02113b;
+  font-weight: 600;
 }

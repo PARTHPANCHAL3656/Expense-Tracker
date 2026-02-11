@@ -1,219 +1,179 @@
-/* Header */
+/* ==========================================
+   HISTORY PAGE — PREMIUM LUXURY UI
+   Palette: Prussian Blue (#02113B)
+   ========================================== */
+
+/* Global Page Background */
+body {
+  background: #f9fafc;
+  font-family: "Inter", sans-serif;
+  color: #111827;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
 .header-section {
   text-align: center;
-  padding: 20px 15px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 22px 16px;
+  background: linear-gradient(135deg, #02113b 0%, #03174f 100%);
   color: white;
-  border-radius: 0 0 20px 20px;
-  margin-bottom: 20px;
+  border-radius: 0 0 22px 22px;
+  margin-bottom: 22px;
 }
 
 .header-section h1 {
-  margin: 0 0 5px 0;
-  font-size: 28px;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .header-section h3 {
-  margin: 0;
-  font-size: 16px;
+  margin-top: 6px;
+  font-size: 14px;
   font-weight: 400;
+  opacity: 0.85;
 }
 
-/* Filter Section */
+/* ==========================================
+   FILTER DROPDOWN
+   ========================================== */
+
 .filter-section {
-  max-width: 500px;
-  margin: 0 auto 20px auto;
-  padding: 0 20px;
+  max-width: 520px;
+  margin: 0 auto 18px auto;
+  padding: 0 18px;
 }
 
 .filter-select {
   width: 100%;
   padding: 14px;
-  font-size: 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  background-color: #f8f9fa;
-  box-sizing: border-box;
+  font-size: 15px;
+  border-radius: 14px;
+  border: 1px solid rgba(2, 17, 59, 0.12);
+  background: white;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .filter-select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #02113b;
+  box-shadow: 0 0 0 3px rgba(2, 17, 59, 0.15);
 }
 
-/* Expense List */
+/* ==========================================
+   EXPENSE LIST CONTAINER
+   ========================================== */
+
 .expense-list {
-  max-width: 500px;
+  max-width: 520px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 18px;
 }
 
-/* Expense Item */
-.expense-item {
-  display: flex;
-  gap: 12px;
-  padding: 15px;
-  margin-bottom: 12px;
-  background-color: #f8f9fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  position: relative;
-}
-
-.expense-icon {
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-radius: 10px;
-  flex-shrink: 0;
-}
-
-.expense-details {
-  flex: 1;
-}
-
-.expense-title {
-  margin: 0 0 4px 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-}
-
-.expense-date {
-  margin: 0 0 6px 0;
-  font-size: 12px;
-  color: #999;
-}
-
-.expense-description {
-  margin: 0 0 4px 0;
-  font-size: 14px;
-  color: #666;
-}
-
-.expense-payment {
-  margin: 0;
-  font-size: 12px;
-  color: #999;
-}
-
-.expense-amount {
-  font-size: 18px;
-  margin: 0 0 40px 0;
-  font-weight: 700;
-  color: #333;
-  align-self: flex-start;
-}
-
-/* Action Buttons */
-.expense-actions {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  display: flex;
-  gap: 8px;
-}
-
-.action-btn {
-  padding: 6px 12px;
-  font-size: 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.action-btn.edit {
-  background-color: #667eea;
-  color: white;
-}
-
-.action-btn.edit:hover {
-  background-color: #5568d3;
-}
-
-.action-btn.delete {
-  background-color: #ff4757;
-  color: white;
-}
-
-.action-btn.delete:hover {
-  background-color: #e84118;
-}
+/* ==========================================
+   EXPENSE CARD (Unified Design)
+   ========================================== */
 
 .expense-card {
-  background: white;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(2, 17, 59, 0.08);
+  border-radius: 18px;
   padding: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 14px;
+  box-shadow: 0 8px 20px rgba(2, 17, 59, 0.06);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease;
 }
 
+.expense-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Header Row */
 .expense-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 12px;
+  gap: 12px;
 }
 
+/* Icon + Title */
 .expense-icon-title {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 12px;
 }
 
 .expense-icon {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(2, 17, 59, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expense-icon img {
+  width: 26px;
+  height: 26px;
   object-fit: contain;
 }
 
+/* Category + Date */
 .expense-category {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
+  color: #02113b;
 }
 
 .expense-date {
-  margin: 4px 0 0 0;
+  margin-top: 3px;
   font-size: 13px;
-  color: #666;
+  color: #6b7280;
 }
 
+/* Amount */
 .expense-amount {
   font-size: 18px;
   font-weight: 700;
-  color: #6366f1;
+  color: #02113b;
 }
 
+/* Description */
 .expense-description {
-  margin: 0 0 12px 0;
+  margin: 12px 0 0 0;
   font-size: 14px;
-  color: #555;
+  color: #4b5563;
+  line-height: 1.4;
 }
 
+/* Footer Row */
 .expense-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 14px;
   padding-top: 12px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid rgba(2, 17, 59, 0.08);
 }
 
+/* Payment Badge */
 .payment-badge {
-  background: #e0e7ff;
-  color: #4f46e5;
-  padding: 4px 12px;
-  border-radius: 12px;
+  padding: 5px 14px;
+  border-radius: 999px;
   font-size: 12px;
   font-weight: 500;
+  background: rgba(2, 17, 59, 0.08);
+  color: #02113b;
 }
 
+/* Action Buttons */
 .expense-actions {
   display: flex;
   gap: 8px;
@@ -221,338 +181,119 @@
 
 .btn-edit,
 .btn-delete {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-edit {
-  background: #dbeafe;
-  color: #1e40af;
-}
-
-.btn-delete {
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-.btn-edit:hover {
-  background: #bfdbfe;
-}
-
-.btn-delete:hover {
-  background: #fecaca;
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .header-section h1 {
-    font-size: 24px;
-  }
-  .filter-section,
-  .expense-list {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .expense-item {
-    flex-wrap: wrap;
-  }
-  .expense-amount {
-    text-align: right;
-    margin-top: 8px;
-  }
-}
-
-.action-btn {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
+  padding: 7px 12px;
+  border-radius: 10px;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  border: none;
+  transition: 0.2s ease;
 }
 
-.action-btn.edit {
-  background: #dbeafe;
-  color: #1e40af;
+/* Edit */
+.btn-edit {
+  background: rgba(2, 17, 59, 0.08);
+  color: #02113b;
 }
 
-.action-btn.edit:hover {
-  background: #bfdbfe;
+.btn-edit:hover {
+  background: rgba(2, 17, 59, 0.15);
 }
 
-.action-btn.delete {
-  background: #fee2e2;
+/* Delete */
+.btn-delete {
+  background: rgba(255, 0, 0, 0.08);
   color: #b91c1c;
 }
 
-.action-btn.delete:hover {
-  background: #fecaca;
+.btn-delete:hover {
+  background: rgba(255, 0, 0, 0.14);
 }
 
 /* ==========================================
-   PAST MONTH FEATURE STYLES
+   PAST MONTH FEATURE (Luxury Consistent)
    ========================================== */
 
-/* Past Month Button */
 .past-month-section {
-  padding: 0 16px;
-  margin-bottom: 16px;
+  padding: 0 18px;
+  margin-bottom: 18px;
 }
 
 .past-month-btn {
   width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  padding: 15px;
+  background: linear-gradient(135deg, #02113b, #052275);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 8px 20px rgba(2, 17, 59, 0.18);
+  transition: 0.25s ease;
 }
 
 .past-month-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
 }
 
-/* Month Dropdown Overlay */
+/* Overlay */
 .month-dropdown-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
   z-index: 9999;
   display: flex;
   align-items: flex-end;
-  animation: fadeIn 0.3s;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.month-dropdown-header {
-  background: white;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #e5e7eb;
-  border-radius: 20px 20px 0 0;
-}
-
-.month-dropdown-header h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #111;
-}
-
-.close-dropdown {
-  background: #f3f4f6;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  transition: all 0.2s;
-}
-
-.close-dropdown:hover {
-  background: #e5e7eb;
-  color: #333;
-}
-
+/* Dropdown Panel */
 .month-list {
   background: white;
-  max-height: 400px;
+  width: 100%;
+  max-height: 420px;
+  padding: 16px;
+  border-radius: 22px 22px 0 0;
   overflow-y: auto;
-  padding: 12px;
-  animation: slideUp 0.3s;
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
+/* Month Item */
 .month-item {
   width: 100%;
-  padding: 16px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 15px;
+  border-radius: 14px;
+  border: 1px solid rgba(2, 17, 59, 0.08);
+  background: rgba(2, 17, 59, 0.03);
+  margin-bottom: 10px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: 0.2s ease;
 }
 
 .month-item:hover {
-  background: #f3f4f6;
-  border-color: #6366f1;
+  background: rgba(2, 17, 59, 0.08);
   transform: translateX(4px);
 }
 
 .month-name {
   font-size: 15px;
   font-weight: 500;
-  color: #111;
+  color: #02113b;
 }
 
-.month-arrow {
-  color: #6366f1;
-  font-size: 18px;
-}
+/* ==========================================
+   MOBILE RESPONSIVE
+   ========================================== */
 
-.no-past-months {
-  text-align: center;
-  padding: 40px 20px;
-  color: #999;
-}
+@media (max-width: 480px) {
+  .header-section h1 {
+    font-size: 23px;
+  }
 
-/* Month Summary View */
-.month-summary-container {
-  padding: 16px;
-  animation: fadeIn 0.3s;
-}
+  .expense-card {
+    padding: 14px;
+  }
 
-.summary-header {
-  margin-bottom: 20px;
-}
-
-.back-btn {
-  background: #f3f4f6;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
-  cursor: pointer;
-  margin-bottom: 12px;
-  transition: all 0.2s;
-}
-
-.back-btn:hover {
-  background: #e5e7eb;
-}
-
-.summary-header h2 {
-  margin: 0;
-  font-size: 24px;
-  color: #111;
-}
-
-.summary-total {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  padding: 24px;
-  border-radius: 16px;
-  margin-bottom: 24px;
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
-}
-
-.summary-label {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
-  margin: 0 0 8px 0;
-}
-
-.summary-amount {
-  color: white;
-  font-size: 36px;
-  font-weight: 700;
-  margin: 0;
-}
-
-.category-breakdown-title {
-  font-size: 18px;
-  margin-bottom: 16px;
-  color: #111;
-}
-
-.summary-category-item {
-  background: white;
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  border: 1px solid #e5e7eb;
-}
-
-.summary-cat-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.summary-cat-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-.summary-cat-name {
-  flex: 1;
-  font-weight: 500;
-  font-size: 15px;
-  color: #111;
-}
-
-.summary-cat-amount {
-  font-weight: 600;
-  font-size: 16px;
-  color: #6366f1;
-}
-
-.summary-progress-bar {
-  background: #e5e7eb;
-  height: 8px;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 6px;
-}
-
-.summary-progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  border-radius: 4px;
-  transition: width 0.6s ease-out;
-}
-
-.summary-cat-percent {
-  text-align: right;
-  font-size: 13px;
-  color: #666;
-  margin: 0;
+  .expense-amount {
+    font-size: 16px;
+  }
 }

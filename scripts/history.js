@@ -94,7 +94,7 @@ function createExpenseItemHTML(expense) {
   });
 
   return `
-    <div class="expense-item" data-id="${expense.id}">
+    <div class="expense-card" data-id="${expense.id}">
         <img src="${expense.categoryIcon}" alt="${expense.categoryName}" class="expense-icon">
       <div class="expense-details">
         <h4 class="expense-title">${expense.categoryName}</h4>

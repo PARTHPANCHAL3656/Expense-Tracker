@@ -1,134 +1,185 @@
-/* Header */
+/* ==========================================
+   DASHBOARD PAGE — PREMIUM PRUSSIAN BLUE UI
+   Theme:
+   Primary: #02113B (Prussian Blue)
+   Accent:  #052275 (True Cobalt)
+   Surface: Silver / Soft Grey
+   ========================================== */
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
 .header-section {
   text-align: center;
-  padding: 20px 15px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 22px 16px;
+  background: linear-gradient(135deg, #02113b, #052275);
   color: white;
-  border-radius: 0 0 20px 20px;
-  margin-bottom: 20px;
+  border-radius: 0 0 22px 22px;
+  margin-bottom: 22px;
 }
 
 .header-section h1 {
-  margin: 0 0 5px 0;
+  margin: 0;
   font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .header-section h3 {
-  margin: 0;
-  font-size: 16px;
+  margin-top: 6px;
+  font-size: 15px;
   font-weight: 400;
+  opacity: 0.85;
 }
 
-/* Total Spent Card */
+/* ==========================================
+   TOTAL SPENT CARD (Hero Premium Card)
+   ========================================== */
+
 .total-card {
-  max-width: 500px;
-  margin: 0 auto 20px auto;
-  padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 16px;
+  max-width: 520px;
+  margin: 0 auto 22px auto;
+  padding: 22px;
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #02113b, #052275);
   color: white;
-  margin-left: 20px;
-  margin-right: 20px;
+
+  box-shadow: 0 10px 28px rgba(2, 17, 59, 0.35);
 }
 
 .card-label {
-  margin: 0 0 10px 0;
-  font-size: 14px;
+  margin: 0;
+  font-size: 13px;
   font-weight: 500;
+  opacity: 0.85;
 }
 
 .total-amount {
-  margin: 0 0 8px 0;
-  font-size: 36px;
-  font-weight: 700;
+  margin: 10px 0 6px 0;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .transaction-count {
   margin: 0;
-  font-size: 14px;
-  opacity: 0.9;
+  font-size: 13px;
+  opacity: 0.8;
 }
 
-/* Sections */
+/* ==========================================
+   SECTION WRAPPER
+   ========================================== */
+
 .section {
-  max-width: 500px;
-  margin: 0 auto 25px auto;
-  padding: 0 20px;
+  max-width: 520px;
+  margin: 0 auto 28px auto;
+  padding: 0 18px;
 }
 
 .section-title {
-  margin: 0 0 15px 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.2px;
 }
 
-/* Category Items */
+/* ==========================================
+   CATEGORY CARDS
+   ========================================== */
+
 .category-item {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  border: 1px solid #e0e0e0;
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(2, 17, 59, 0.08);
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.category-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(2, 17, 59, 0.12);
 }
 
 .category-header {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .category-icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   object-fit: contain;
 }
 
 .category-name {
   flex: 1;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
 }
 
 .category-amount {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
+  font-size: 15px;
+  font-weight: 700;
+  color: #02113b;
 }
 
-/* Progress Bar */
+/* ==========================================
+   PROGRESS BAR (Premium Smooth)
+   ========================================== */
+
 .progress-bar {
   width: 100%;
-  height: 8px;
-  background-color: #e0e0e0;
-  border-radius: 10px;
+  height: 9px;
+  background: rgba(2, 17, 59, 0.12);
+  border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 8px;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  border-radius: 10px;
+  width: 0%;
+  background: linear-gradient(90deg, #052275, #02113b);
+  border-radius: 12px;
+
+  transition: width 0.7s ease-out;
 }
 
 .category-percent {
-  margin: 0;
+  margin-top: 8px;
   font-size: 12px;
-  color: #666;
+  color: #6b7280;
 }
 
-/* Chart Placeholder */
+/* ==========================================
+   CHART CONTAINER
+   ========================================== */
+
 .chart-placeholder {
-  background-color: #f8f9fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  min-height: 250px;
+  min-height: 260px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(2, 17, 59, 0.08);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 
 .pie-chart,
@@ -136,24 +187,28 @@
   width: 100%;
 }
 
-/* Mobile */
+/* ==========================================
+   MOBILE OPTIMIZATION
+   ========================================== */
+
 @media (max-width: 480px) {
   .header-section h1 {
     font-size: 24px;
   }
-  .total-card,
-  .section {
-    padding-left: 15px;
-    padding-right: 15px;
+
+  .total-card {
+    padding: 18px;
   }
+
   .total-amount {
     font-size: 32px;
   }
-}
 
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  border-radius: 4px;
-  transition: width 0.6s ease-out;
+  .section {
+    padding: 0 14px;
+  }
+
+  .category-item {
+    padding: 14px;
+  }
 }
